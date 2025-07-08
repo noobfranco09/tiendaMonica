@@ -31,15 +31,15 @@ $db = new Mysql();
 $correoSanitizado = validarCorreo($_POST['correo']);
 $contraseña = $_POST['contraseña'];
 
-if ($correoSanitizado && !empty($contraseña)) {
-    $sql = "SELECT rol, correo, contraseña FROM usuarios WHERE correo = ?";
+if ($correoSanitizado && !empty($contraseña) && isset($contraseña) ) {
+    $sql = "SELECT idRol, correo, contraseña FROM usuarios WHERE correo = ?";
     $resultado = $db->consultaPreparada($sql, "s", [$correoSanitizado]);
 
     if ($resultado && count($resultado) > 0) {
         $usuario = $resultado[0];
         if ($contraseña == $usuario['contraseña']) {
-            $_SESSION['rol'] = $usuario['rol'];
-            header("Location: dashboard.php");
+            $_SESSION['rol'] = $usuario['idRol'];
+            header("Location: ../views/dashboard.php");
             exit();
         } else {
             die("Contraseña incorrecta.");
