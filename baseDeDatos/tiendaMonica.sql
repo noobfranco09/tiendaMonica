@@ -72,7 +72,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `tiendaMonica`.`usuarios` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
-  `rol` INT NOT NULL,
   `contraseña` VARCHAR(200) NOT NULL,
   `estado` TINYINT NOT NULL,
   `correo` VARCHAR(100) NOT NULL,

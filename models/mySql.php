@@ -22,30 +22,30 @@ class Mysql
         $this->conexion->set_charset("utf8");
     }
 
-/*     public function consulta($consulta)
-    {
-        $resultado = $this->conexion->query($consulta);
-        if (!$resultado) {
-            throw new ErrorException("Error en la consulta" . $consulta);
-        }
-        if ($resultado instanceof mysqli_result) {
-            return $resultado->fetch_all(MYSQL_ASSOC);
-        } else {
-            return true;
-        }
+    /*     public function consulta($consulta)
+        {
+            $resultado = $this->conexion->query($consulta);
+            if (!$resultado) {
+                throw new ErrorException("Error en la consulta" . $consulta);
+            }
+            if ($resultado instanceof mysqli_result) {
+                return $resultado->fetch_all(MYSQL_ASSOC);
+            } else {
+                return true;
+            }
 
-    } */
+        } */
 
-    public function consultaPreparada($sql, $tipos, $params)
+    public function consultaPreparada($sql, $tipos="", $params=[])
     {
         $stmt = $this->conexion->prepare($sql);
         if (!$stmt) {
             throw new Exception("Error al preparar la consulta: " . $this->conexion->error);
         }
-
-        // Unión dinámica de parámetros
-        $stmt->bind_param($tipos, ...$params);
-
+        if (!empty($params)) {
+            // Unión dinámica de parámetros
+            $stmt->bind_param($tipos, ...$params);
+        }
         $stmt->execute();
         $resultado = $stmt->get_result();
 
