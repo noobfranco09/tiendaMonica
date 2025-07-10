@@ -37,7 +37,7 @@ $resultado = $db->consultaPreparada($consulta);
         <section>
             <div class="row m-1">
                 <div class="col-12">
-                    <a class="btn btn-primary" href="../controller/crearProducto.php">Crear Producto</a>
+                    <a class="btn btn-primary" href="./crearProducto.php">Crear Producto</a>
                 </div>
             </div>
             <div class="row">
@@ -48,6 +48,7 @@ $resultado = $db->consultaPreparada($consulta);
                     }
                     ?>
                     <?php foreach ($resultado as $producto): ?>
+                        <?php $idProducto=$producto['idProducto'] ?>
                         <div class="card" style="width: 18rem;">
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
@@ -64,56 +65,21 @@ $resultado = $db->consultaPreparada($consulta);
                                 <div class="row">
                                     <div class="col-6">
                                         <a class="btn btn-primary"
-                                            href="../controller/eliminarProducto.php?=<?php echo $producto['idProducto']; ?>">Eliminar</a>
+                                            href="../controller/eliminarProducto.php?idProducto=<?php echo $producto['idProducto'] ?>">Eliminar</a>
                                     </div>
                                     <div class="col-6">
                                         <a class="btn btn-primary"
-                                            href="../controller/editarProducto.php?=<?php echo $resultado; ?>">Editar</a>
+                                            href="../views/editarProducto.php?idProducto=<?php echo $producto['idProducto'] ?>">Editar</a>
                                     </div>
                                 </div>
 
 
-                            </div>
+                            </div>  
                         </div>
                     <?php endforeach; ?>
                 </div>
             </div>
-<!-- *********************************************************** Modal crear producto ************************************************************-->
-            <div class="row">
-                <div class="col-12">
-                    <div class="modal" tabindex="-1">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Crear Producto</h5>
-                            0        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <form action="../controller/crearProducto.php" method="POST">
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <label class="form-label" for="correo">Correo</label>
-                                            <input class="form-control" type="email" required name="correo" id="correo">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label" for="contraseña">Contraseña</label>
-                                            <input class="form-control" type="text" required name="contraseña"
-                                                id="contraseña">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Guardar cambios</button>
-                                    </div>
-                                </form>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-<!-- *********************************************************** Fin modal ************************************************************-->
         </section>
 
     </div>

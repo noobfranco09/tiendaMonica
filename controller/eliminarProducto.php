@@ -1,3 +1,4 @@
 <?php
-echo "wazaaaaa"; 
+$idProducto=$_GET['idProducto'];
+echo $idProducto; 
 ?>
