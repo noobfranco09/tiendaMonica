@@ -1,35 +1,14 @@
-<?php
-session_start();
-require '../models/mySql.php';
-$db = new Mysql();
-$query = "select * from provedores";
-$query2 = "select * from tipoProducto";
-
-$provedores = $db->consultaPreparada($query);
-$tipoProducto = $db->consultaPreparada($query2);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear producto</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <?php require './layouts/head.php'; ?>
 </head>
 
 <body>
-    <?php if (empty($provedores)) {
-        die("Por favor,primero agregue provedores a su base de datos");
-    } ?>
-    <?php if (empty($tipoProducto)) {
-        die("Por favor,primero agregue las categorías de los productos  a su base de datos");
-    } ?>
+    <?php require './layouts/header.php'; ?>
+    <?php require './layouts/navBar.php'; ?>
     <div class="container">
-        <header></header>
-        <aside></aside>
-        <section>
             <div class="row">
                 <div class="col-18 d-flex justify-content-center">
                     <form action="../controller/crearProducto.php" method="POST">
@@ -48,7 +27,8 @@ $tipoProducto = $db->consultaPreparada($query2);
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="precioProducto">Precio del producto</label>
-                            <input class="form-control" type="number" required name="precioProducto" id="precioProducto">
+                            <input class="form-control" type="number" required name="precioProducto"
+                                id="precioProducto">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="idProvedor">Provedores:</label>
@@ -66,7 +46,8 @@ $tipoProducto = $db->consultaPreparada($query2);
                             <select name="idTipoProducto" id="idTipoProducto">
                                 <option value="" disabled selected>Selecciona una categoría para el producto</option>
                                 <?php foreach ($tipoProducto as $producto): ?>
-                                    <option value="<?php echo $producto['idTipoProducto'] ?>"><?php echo $producto['nombre'] ?>
+                                    <option value="<?php echo $producto['idTipoProducto'] ?>">
+                                        <?php echo $producto['nombre'] ?>
                                     </option>
                                 <?php endforeach; ?>
 
@@ -85,11 +66,10 @@ $tipoProducto = $db->consultaPreparada($query2);
                     </form>
                 </div>
             </div>
-        </section>
     </div>
 
 
-    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <?php require './layouts/footer.php'; ?>
 </body>
 
 </html>

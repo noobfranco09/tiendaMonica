@@ -1,0 +1,57 @@
+<!-- head.php -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda Galáctica</title>
+
+<!-- Bootstrap local -->
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+<!-- Google Font moderna -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        background-color: #0b0c10; /* fondo galáctico oscuro */
+        font-family: 'Orbitron', sans-serif;
+        color: #ffffff;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1;
+    }
+
+    header {
+        background: linear-gradient(90deg, #8e2de2, #4a00e0);
+        color: white;
+        padding: 1.5rem 0;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    nav {
+        background-color: #1f1f2e;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a.nav-link {
+        color: white !important;
+    }
+
+    footer {
+        background-color: #0b0c10;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+    }
+</style>

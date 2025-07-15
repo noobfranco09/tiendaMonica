@@ -1,5 +1,10 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuario']))
+{
+    header('Location: ../views/login.php');
+    exit();
+}
 $idProducto = $_GET['idProducto'];
 require '../models/mySql.php';
 $db = new Mysql();
