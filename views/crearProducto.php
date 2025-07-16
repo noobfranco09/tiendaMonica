@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <?php require './layouts/head.php'; ?>
+    <?php require '../views/layouts/head.php';?>
 </head>
 
 <body>
-    <?php require './layouts/header.php'; ?>
-    <?php require './layouts/navBar.php'; ?>
+    <?php require '../views/layouts/header.php'; ?>
+    <?php require '../views/layouts/navBar.php'; ?>
     <div class="container">
             <div class="row">
                 <div class="col-18 d-flex justify-content-center">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="idTipoProducto">Categoria del producto: </label>
-                            <select name="idTipoProducto" id="idTipoProducto">
+                            <select name="idTipoProducto" id="idTipoProducto" required>
                                 <option value="" disabled selected>Selecciona una categoría para el producto</option>
                                 <?php foreach ($tipoProducto as $producto): ?>
                                     <option value="<?php echo $producto['idTipoProducto'] ?>">
@@ -67,9 +67,7 @@
                 </div>
             </div>
     </div>
-
-
-    <?php require './layouts/footer.php'; ?>
+    <?php require '../views/layouts/footer.php'; ?>
 </body>
 
 </html>

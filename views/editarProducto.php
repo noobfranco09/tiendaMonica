@@ -47,69 +47,7 @@ $producto = $producto[0];
         <section>
             <div class="row">
                 <div class="col-18 d-flex justify-content-center">
-                    <form action="../controller/editarProducto.php" method="POST">
-                        <div class="mb-3">
-                             <input class="form-control" type="hidden" required name="idProducto" id="idProducto"
-                                value="<?php echo $idProducto;?>">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="nombreProducto">Nombre del producto</label>
-                            <input class="form-control" type="text" required name="nombreProducto" id="nombreProducto"
-                                value="<?php echo $producto['nombre'] ?>">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="descripcionProducto">Descripción del producto</label>
-                            <input class="form-control" type="text" required name="descripcionProducto"
-                                id="descripcionProducto" value="<?php echo $producto['descripcion'] ?>">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="stockProducto">Stock del producto</label>
-                            <input class="form-control" type="number" required name="stockProducto" id="stockProducto"
-                                value="<?php echo $producto['stock'] ?>">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="precioProducto">Precio del producto</label>
-                            <input class="form-control" type="number" required name="precioProducto" id="precioProducto"
-                                value="<?php echo $producto['precio'] ?>">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="idProvedor">Provedores:</label>
-                            <select name="idProvedor" id="idProvedor">
-                                <option value="" disabled selected>Selecciona un provedor</option>
-                                <?php foreach ($provedores as $provedor): ?>
-                                    <option value="<?php echo $provedor['idProvedor'] ?>" <?php if ($provedor['idProvedor'] == $producto['idProvedor'])
-                                           echo 'selected'; ?>>
-
-                                        <?php echo $provedor['nombre'] ?>
-                                    </option>
-                                <?php endforeach; ?>
-
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="idTipoProducto">Categoria del producto: </label>
-                            <select name="idTipoProducto" id="idTipoProducto">
-                                <option value="" disabled selected>Selecciona una categoría para el producto</option>
-                                <?php foreach ($tipoProducto as $producto): ?>
-                                    <option value="<?php echo $producto['idTipoProducto'] ?>" <?php if ($producto['idTipoProducto'] == $producto['idTipoProducto'])
-                                           echo 'selected'; ?>>
-                                        <?php echo $producto['nombre'] ?>
-                                    </option>
-                                <?php endforeach; ?>
-
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <div class="row">
-                                <div class="col-6">
-                                    <button class="btn btn-primary " type="submit">Guardar</button>
-                                </div>
-                                <div class="col-6">
-                                    <a href="./dashBoard.php" class="btn btn-danger ">Cancelar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                   
                 </div>
             </div>
         </section>

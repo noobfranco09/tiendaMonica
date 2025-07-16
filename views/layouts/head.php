@@ -6,8 +6,8 @@
 <!-- Bootstrap local -->
 <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 
-<!-- Google Font moderna -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+
 
 <style>
     html, body {

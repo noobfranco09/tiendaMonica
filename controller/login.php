@@ -16,7 +16,7 @@ if ($correoSanitizado && !empty($contraseña)) {
         $usuario = $resultado[0];
         if ($contraseña == $usuario['contraseña']) {
             $_SESSION['usuario'] = $usuario['nombre'];
-            header("Location: ../views/dashboard.php");
+            header("Location: ../controller/dashboard.php");
             exit();
         } else {
             header("Location: ../views/login.php?error=contraseña");

@@ -7,22 +7,7 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 $db = new Mysql();
-
-$queryProvedores = "select * from provedores";
-$queryTipoProducto = "select * from tipoProducto";
-
-$provedores = $db->consultaPreparada($queryProvedores);
-$tipoProducto = $db->consultaPreparada($queryTipoProducto);
-if (empty($provedores)) {
-    header('Location: ../views/provedores.php?error=provedor ');
-    exit();
-}
-
-if (empty($tipoProducto)) {
-    header('Location: ../views/categoriaProducto.php?error=producto ');
-    exit();
-}
-require'../views/crearProducto.php';
+require'../views/layouts/error/error.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (
@@ -30,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         || !isset($_POST['stockProducto']) || !isset($_POST['precioProducto']) ||
         !isset($_POST['idProvedor']) || !isset($_POST['idTipoProducto'])
     ) {
-        header('Location: ../views/crearProducto.php?error=variablesVacias');
+        $_SESSION['error']="Por favor, llene todos los campos";
+        header('Location: ../controller/crearProducto.php');
         exit();
     }
 
@@ -50,14 +36,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $datos = [$nombre, $descripcion, $stock, $precio, $estado, $idProvedor, $idTipoProducto];
     $resultado = $db->consultaPreparada($query, $tipos, $datos);
 
-    if ($resultado == true) {
-        echo "agregado con éxito";
-        header("Location: ../views/dashBoard.php");
+    if ($resultado) {
+        
+        $_SESSION['mensaje']="Agregado con éxito";
+        header("Location: ./dashBoard.php");
+        exit();
     }
     ;
-} else {
-    header("Location: ../views/crearProducto.php");
+}
+$queryProvedores = "select * from provedores";
+$queryTipoProducto = "select * from tipoProducto";
+
+$provedores = $db->consultaPreparada($queryProvedores);
+$tipoProducto = $db->consultaPreparada($queryTipoProducto);
+if (empty($provedores)) {
+    header('Location: ../views/provedores.php?error=provedor ');
+    exit();
 }
 
+if (empty($tipoProducto)) {
+    header('Location: ../views/categoriaProducto.php?error=producto ');
+    exit();
+}
+require '../views/crearProducto.php';
 
 ?>

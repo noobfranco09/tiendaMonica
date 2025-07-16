@@ -2,24 +2,30 @@
 <html lang="en">
 
 <head>
-    <?php require './layouts/head.php' ?>
+    <?php require '../views/layouts/head.php' ?>
 </head>
 
 <body>
-    <?php require './layouts/header.php' ?>
-    <?php require './layouts/navBar.php' ?>
-    <?php ?>
+
+    <?php require '../views/layouts/header.php' ?>
+    <?php require '../views/layouts/navBar.php' ?>
+
+    <?php require '../views/layouts/modals/modalEditarProducto.php' ?>
+    <main>
+
+    </main>
     <div class="container">
         <div class="row m-1">
             <div class="col-12">
-                <a class="btn btn-primary" href="./crearProducto.php">Crear Producto</a>
+                <a class="btn btn-primary" href="../controller/crearProducto.php">Crear Producto</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <?php if (!empty($resultado)): ?>
-                    <?php foreach ($resultado as $producto): ?>
-                        <?php $idProducto = $producto['idProducto'] ?>
+        <div class="row d-flex">
+
+            <?php if (!empty($resultado)): ?>
+                <?php foreach ($resultado as $producto): ?>
+                    <?php $idProducto = $producto['idProducto'] ?>
+                    <div class="col-4 d-flex  justify-content-around  mt-3 ">
                         <div class="card" style="width: 18rem;">
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
@@ -35,29 +41,31 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <a class="btn btn-primary"
-                                            href="../controller/eliminarProducto.php?idProducto=<?php echo $producto['idProducto'] ?>">Eliminar</a>
+                                        <button class="btn btn-primary btnEditarProducto"  data-id="<?php echo $producto['idProducto'] ?>"
+                                            data-bs-toggle="modal" data-bs-target="#modalEditarProducto">Editar</button>
                                     </div>
                                     <div class="col-6">
-                                        <a class="btn btn-primary"
-                                            href="../views/editarProducto.php?idProducto=<?php echo $producto['idProducto'] ?>">Editar</a>
+                                        <abutton class="btn btn-primary" data-id="<?php echo $producto['idProducto'] ?>">Eliminar</abutton>
                                     </div>
                                 </div>
 
 
                             </div>
                         </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
         </div>
 
 
     </div>
 
 
-    <?php require './layouts/footer.php' ?>
-    <?php require './layouts/error/errorProductos.php'; ?>
+    <?php require '../views/layouts/footer.php' ?>
+    <?php require '../views/layouts/error/error.php'; ?>
+    <script src="../assets/js/ajaxJs/productoPorId.js"></script>
+
 </body>
 
 </html>

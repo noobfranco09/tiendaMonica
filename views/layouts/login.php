@@ -1,4 +1,4 @@
-<!-- loginForm.php -->
+ <!-- loginForm.php -->
 <div class="container d-flex align-items-center justify-content-center" style="min-height: 85vh;">
     <div class="row w-100 justify-content-center">
         <div class="col-md-6 col-lg-4">
@@ -23,4 +23,4 @@
                         </div>
                     </form>
                 </div>
-                <div class="card-footer text-center small" style="background-color: #0b0c10; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+                <div class="card-footer text-center small" style="background-color: #0b0c10; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"> 
