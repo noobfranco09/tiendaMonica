@@ -6,4 +6,4 @@
 </footer>
 
 <!-- JS Bootstrap local -->
-<script src="../assets/js/bootstrap.bundle.js"></script>
+<script src="/tiendaMonica/assets/js/bootstrap.bundle.js"></script>

@@ -10,34 +10,34 @@
             <div class="modal-body">
                 <form action="../controller/editarProducto.php" method="POST">
                     <div class="mb-3">
-                        <input class="form-control" type="hidden" required name="editarIdProducto" id="idProducto">
+                        <input class="form-control" type="hidden" required name="editarIdProducto" id="editarIdProducto">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="editarNombreProducto">Nombre del producto</label>
-                        <input class="form-control" type="text" required name="editarNombreProducto" id="nombreProducto">
+                        <input class="form-control" type="text" required name="editarNombreProducto" id="editarNombreProducto">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="editarDescripcionProducto">Descripción del producto</label>
                         <input class="form-control" type="text" required name="editarDescripcionProducto"
-                            id="descripcionProducto">
+                            id="editarDescripcionProducto">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="editarStockProducto">Stock del producto</label>
-                        <input class="form-control" type="number" required name="editarStockProducto" id="stockProducto">
+                        <input class="form-control" type="number" required name="editarStockProducto" id="editarStockProducto">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="editarPrecioProducto">Precio del producto</label>
-                        <input class="form-control" type="number" required name="editarPrecioProducto" id="precioProducto">
+                        <input class="form-control" type="number" required name="editarPrecioProducto" id="editarPrecioProducto">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="editarIdProvedor">Provedores:</label>
-                        <select name="idProvedor" id="editarIdProvedor">
+                        <select name="editarIdProvedor" id="editarIdProvedor">
                             <option value="" disabled selected>Selecciona un provedor</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="editarIdTipoProducto">Categoria del producto: </label>
-                        <select name="idTipoProducto" id="editarIdTipoProducto">
+                        <select name="editarIdTipoProducto" id="editarIdTipoProducto">
                             <option value="" disabled selected>Selecciona una categoría para el producto</option>
                         </select>
                     </div>
