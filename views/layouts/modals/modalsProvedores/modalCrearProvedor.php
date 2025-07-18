@@ -1,9 +1,9 @@
-<!-- Modal editar producto -->
-<div class="modal fade" id="modalEditarProducto" tabindex="-1" aria-labelledby="editarLabelProducto" aria-hidden="true">
+<!-- Modal crear producto -->
+<div class="modal fade" id="modalEditarProvedor" tabindex="-1" aria-labelledby="editarLabelEditarProvedor" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-dark text-white">
             <div class="modal-header">
-                <h5 class="modal-title" id="editarLabelProducto">Editar Producto</h5>
+                <h5 class="modal-title" id="editarLabelEditarProvedor">Editar Producto</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Cerrar"></button>
             </div>

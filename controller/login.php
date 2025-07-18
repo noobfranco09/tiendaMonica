@@ -2,6 +2,7 @@
 session_start();
 require "../functions/sanitizarVariables.php";
 require "../models/mySql.php";
+require '../../rutas/rutaGlobal.php';
 
 $db = new Mysql();
 

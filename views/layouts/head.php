@@ -1,10 +1,11 @@
 <!-- head.php -->
+ <?php require $_SERVER['DOCUMENT_ROOT'].'/tiendaMonica/rutas/rutaGlobal.php' ?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tienda Galáctica</title>
 
 <!-- Bootstrap local -->
-<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href= <?php echo BASE_URL.'assets/css/bootstrap.min.css' ?>>
 
 
 

@@ -1,4 +1,4 @@
-<?php if (isset($_SESSION['error'])): ?>
+<?php if (isset($_SESSION['error']) || isset($_SESSION['mensaje'])): ?>
     <!-- Modal de error -->
     <div class="modal fade" id="errorModalProductos" tabindex="-1" aria-labelledby="errorModalLabelProducto" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -9,10 +9,19 @@
                 </div>
                 <div class="modal-body">
                     <?php
-
-                                echo $_SESSION['error'] ;
-                                unset($_SESSION['error'])
+                            if(isset($_SESSION['error']))
+                                {
+                                     echo $_SESSION['error'] ;
+                                unset($_SESSION['error']);
                                 
+                                };
+                                if(isset($_SESSION['mensaje']))
+                                {
+                                     echo $_SESSION['mensaje'] ;
+                                unset($_SESSION['mensaje']);
+                                };
+
+                               
 
                     ?>
                 </div>

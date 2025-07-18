@@ -1,4 +1,4 @@
-<!-- Modal editar producto -->
+<!-- Modal editar provedores -->
 <div class="modal fade" id="modalEditarProducto" tabindex="-1" aria-labelledby="editarLabelProducto" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-dark text-white">

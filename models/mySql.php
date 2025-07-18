@@ -1,6 +1,8 @@
 <?php
+
 class Mysql
 {
+    
     private $ipServidor = "localhost";
     private $usuario = "root";
     private $baseDeDatos = "tiendaMonica";

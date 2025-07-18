@@ -1,13 +1,15 @@
 <?php
-require '../models/mySql.php';
+
+require_once $_SERVER['DOCUMENT_ROOT'].'/tiendaMonica/rutas/rutaGlobal.php';
+require BASE_PATH.'/models/mySql.php';
 
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header('Location: ../views/login.php');
+    header('Location:' .BASE_URL.'views/login.php');
     exit();
 }
 $db = new Mysql();
-require'../views/layouts/error/error.php';
+require BASE_PATH.'views/layouts/error/error.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (
@@ -16,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         !isset($_POST['idProvedor']) || !isset($_POST['idTipoProducto'])
     ) {
         $_SESSION['error']="Por favor, llene todos los campos";
-        header('Location: ../controller/crearProducto.php');
+        header('Location:'.BASE_URL.'controller/productos/crearProducto.php');
         exit();
     }
 
@@ -39,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($resultado) {
         
         $_SESSION['mensaje']="Agregado con éxito";
-        header("Location: ./dashBoard.php");
+        header('Location:'.BASE_URL. 'controller/dashBoard.php');
         exit();
     }
     ;
@@ -50,14 +52,14 @@ $queryTipoProducto = "select * from tipoProducto";
 $provedores = $db->consultaPreparada($queryProvedores);
 $tipoProducto = $db->consultaPreparada($queryTipoProducto);
 if (empty($provedores)) {
-    header('Location: ../views/provedores.php?error=provedor ');
+    header('Location:'.BASE_URL. 'controller/provedores.php?error=provedor ');
     exit();
 }
 
 if (empty($tipoProducto)) {
-    header('Location: ../views/categoriaProducto.php?error=producto ');
+    header('Location:'.BASE_URL.'controller/categoriaProducto.php?error=producto ');
     exit();
 }
-require '../views/crearProducto.php';
+require BASE_PATH.'/views/crearProducto.php';
 
 ?>

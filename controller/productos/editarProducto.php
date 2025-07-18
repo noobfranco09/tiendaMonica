@@ -1,5 +1,7 @@
 <?php
-require '../models/mySql.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/tiendaMonica/rutas/rutaGlobal.php';
+require_once BASE_PATH.'/models/mySql.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
@@ -9,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             !isset($_POST['editarIdProvedor']) || !isset($_POST['editarIdTipoProducto'])
         ) {
             $_SESSION['error'] = "Por favor, llene todos los campos";
-            header('Location: ');
+            header('Location:'.BASE_URL.'controller/dashBoard.php');
             exit();
         }
 
@@ -32,19 +34,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($resultado) {
 
             $_SESSION['mensaje'] = "Editado con éxito";
-            header("Location: ../controller/dashBoard.php");
+            header('Location:'.BASE_URL.'controller/dashBoard.php');
             exit();
         }
         ;
     } catch (PDOException $e) {
         $_SESSION['mensaje'] = "No se pudo editar el producto";
-        header("Location: ../controller/dashBoard.php");
+        header('Location:'.BASE_URL.'controller/dashBoard.php');
         exit();
     }
 
 } else {
     $_SESSION['mensaje'] = "No se seleccionó ningún producto";
-    header("Location: ../controller/dashBoard.php");
+    header('Location:'.BASE_URL.'controller/dashBoard.php');
     exit();
 }
 ?>

@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row m-1">
             <div class="col-12">
-                <a class="btn btn-primary" href="../controller/crearProducto.php">Crear Producto</a>
+                <a class="btn btn-primary" href="<?php echo BASE_URL."controller/productos/crearProducto.php" ?>">Crear Producto</a>
             </div>
         </div>
         <div class="row d-flex">
@@ -41,11 +41,17 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <button class="btn btn-primary btnEditarProducto"  data-id="<?php echo $producto['idProducto'] ?>"
-                                            data-bs-toggle="modal" data-bs-target="#modalEditarProducto">Editar</button>
+                                        <button class="btn btn-primary btnEditarProducto"
+                                            data-id="<?php echo $producto['idProducto'] ?>" data-bs-toggle="modal"
+                                            data-bs-target="#modalEditarProducto">Editar</button>
                                     </div>
                                     <div class="col-6">
-                                        <abutton class="btn btn-primary" data-id="<?php echo $producto['idProducto'] ?>">Eliminar</abutton>
+                                        <form action="<?php echo BASE_URL . 'controller/productos/eliminarProducto.php' ?>"
+                                            method="POST">
+                                            <input type="hidden" name="btnIdProducto" value="<?= $producto['idProducto'] ?>">
+                                            <button class="btn btn-primary">Eliminar</button>
+                                        </form>
+
                                     </div>
                                 </div>
 

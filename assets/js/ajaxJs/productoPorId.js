@@ -47,13 +47,13 @@ async function formEditarProducto(id) {
       if (categoria.idTipoProducto === producto.idTipoProducto) {
         console.log(categoria.idTipoProducto)
         let option = document.createElement("option");
-        option.setAttribute("value", `${categoria.id}`);
+        option.setAttribute("value", `${categoria.idTipoProducto}`);
         option.setAttribute("selected", "selected");
         option.appendChild(document.createTextNode(`${categoria.nombre}`));
         idTipoProducto.appendChild(option);
       } else {
         let option = document.createElement("option");
-        option.setAttribute("value", `${categoria.id}`);
+        option.setAttribute("value", `${categoria.idTipoProducto}`);
         option.appendChild(document.createTextNode(`${categoria.nombre}`));
         idTipoProducto.appendChild(option);
       }

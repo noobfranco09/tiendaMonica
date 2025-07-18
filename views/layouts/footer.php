@@ -1,3 +1,4 @@
+ <?php require_once $_SERVER['DOCUMENT_ROOT'] .'/tiendaMonica/rutas/rutaGlobal.php' ?>
 <!-- footer.php -->
 <footer class="text-center mt-5">
     <div class="container">
@@ -6,4 +7,4 @@
 </footer>
 
 <!-- JS Bootstrap local -->
-<script src="/tiendaMonica/assets/js/bootstrap.bundle.js"></script>
+<script src="<?php echo BASE_URL.'assets/js/bootstrap.bundle.js' ?>"></script>

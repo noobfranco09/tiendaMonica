@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-    <?php require '../views/layouts/head.php';?>
+    <?php require '../../views/layouts/head.php';?>
 </head>
 
 <body>
-    <?php require '../views/layouts/header.php'; ?>
-    <?php require '../views/layouts/navBar.php'; ?>
+    <?php require '../../views/layouts/header.php'; ?>
+    <?php require '../../views/layouts/navBar.php'; ?>
     <div class="container">
             <div class="row">
                 <div class="col-18 d-flex justify-content-center">
-                    <form action="../controller/crearProducto.php" method="POST">
+                    <form action="../../controller/productos/crearProducto.php" method="POST">
                         <div class="mb-3">
                             <label class="form-label" for="nombreProducto">Nombre del producto</label>
                             <input class="form-control" type="text" required name="nombreProducto" id="nombreProducto">
@@ -67,7 +67,7 @@
                 </div>
             </div>
     </div>
-    <?php require '../views/layouts/footer.php'; ?>
+    <?php require '../../views/layouts/footer.php'; ?>
 </body>
 
 </html>
