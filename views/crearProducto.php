@@ -59,7 +59,7 @@
                                     <button class="btn btn-primary " type="submit">Guardar</button>
                                 </div>
                                 <div class="col-6">
-                                    <a href="./dashBoard.php" class="btn btn-danger ">Cancelar</a>
+                                    <a href="<?php echo BASE_URL.'views/dashBoard.php' ?>" class="btn btn-danger ">Cancelar</a>
                                 </div>
                             </div>
                         </div>

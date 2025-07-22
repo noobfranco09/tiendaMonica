@@ -47,14 +47,14 @@
                                 <button class="btn btn-primary " type="submit">Guardar</button>
                             </div>
                             <div class="col-6">
-                                <a href="./dashBoard.php" class="btn btn-danger ">Cancelar</a>
+                               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                
             </div>
         </div>
     </div>

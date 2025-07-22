@@ -60,6 +60,6 @@ if (empty($tipoProducto)) {
     header('Location:'.BASE_URL.'controller/categoriaProducto.php?error=producto ');
     exit();
 }
-require BASE_PATH.'/views/crearProducto.php';
+require BASE_PATH.'views/crearProducto.php';
 
 ?>

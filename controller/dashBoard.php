@@ -15,6 +15,7 @@ $resultado = $db->consultaPreparada($consulta);
 if(!$resultado || empty($resultado))
 {
     $_SESSION['error']="No hay productos para mostrar";
+    require_once BASE_PATH.'/views/layouts/error/error.php';
     header('Location:'.BASE_URL.'views/dashBoard.php');
     exit();
 }

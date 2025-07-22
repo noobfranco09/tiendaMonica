@@ -7,7 +7,7 @@
                     <h4 class="m-0 text-white" style="text-shadow: 0 0 10px rgba(255,255,255,0.2);">Login</h4>
                 </div>
                 <div class="card-body p-4">
-                    <form action="../controller/login.php" method="POST">
+                    <form action="<?php echo BASE_URL.'controller/login.php' ?>" method="POST">
                         <div class="mb-3">
                             <label class="form-label" for="correo">Correo</label>
                             <input class="form-control bg-dark text-light border-secondary" type="email" required name="correo" id="correo">
