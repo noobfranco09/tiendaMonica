@@ -24,13 +24,15 @@ INNER JOIN categorias ON categorias.idCategoria = provedores_has_categorias.idCa
 WHERE provedores.estado = 1 
 ORDER BY provedores.idProvedor
  ";
-$provedores = $db->consultaPreparada($query);
+$queryProvedores="select * from provedores ";
+$provedores=$db->consultaPreparada($queryProvedores);
+$categoriasProvedor = $db->consultaPreparada($query);
 
 
 $queryCategorias="select * from categorias";
 $categorias=$db->consultaPreparada($queryCategorias);
 $db->cerrarConexion();
-if (!$provedores || empty($provedores)) {
+if (!$categoriasProvedor || empty($categoriasProvedor)) {
     ;
     $_SESSION['mensaje'] = "No  hay provedores para mostrar";
     header('Location:' . BASE_URL . 'controller/dashBoardProvedores.php');
