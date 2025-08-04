@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php require '../views/layouts/head.php' ?>
+    <?php require  '../views/layouts/head.php' ?>
 </head>
 
 <body>

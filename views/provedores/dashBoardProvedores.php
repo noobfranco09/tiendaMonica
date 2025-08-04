@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <?php require BASE_PATH . '/views/layouts/head.php' ?>
+    <?php require BASE_PATH . 'views/layouts/head.php' ?>
 </head>
 
 <body>
 
 
-    <?php require BASE_PATH . '/views/layouts/header.php' ?>
-    <?php require BASE_PATH . '/views/layouts/navBar.php' ?>
+    <?php require BASE_PATH . 'views/layouts/header.php' ?>
+    <?php require BASE_PATH . 'views/layouts/navBar.php' ?>
 
     <main>
         <div class="container ">
@@ -50,7 +50,7 @@
                                             data-bs-target="#modalEditarProvedor"
                                             data-id="<?php echo $provedor['idProvedor'] ?>">Editar</button>
                                         <form method="POST"
-                                            action="<?php echo BASE_URL . '/controller/provedores/eliminarProvedor.php' ?>"
+                                            action="<?php echo BASE_URL . 'controller/provedores/eliminarProvedor.php' ?>"
                                             style="display:inline;">
                                             <button class="btn btn-danger btnEliminarProvedor" name="idProvedor"
                                                 value="<?php echo $provedor['idProvedor'] ?>">Eliminar</button>
@@ -106,14 +106,14 @@
         </div>
     </main>
 
-    <?php require BASE_PATH . '/views/layouts/footer.php' ?>
-    <script src="<?php echo BASE_URL . '/assets/js/provedores/modalEditarProvedor.js' ?>"></script>
+    <?php require BASE_PATH . 'views/layouts/footer.php' ?>
+    <script src="<?php echo BASE_URL . 'assets/js/provedores/modalEditarProvedor.js' ?>"></script>
 
     <?php require_once BASE_PATH . 'views/layouts/modals/modalsProvedores/modalCrearProvedor.php'; ?>
     <?php require_once BASE_PATH . 'views/layouts/modals/modalsProvedores/modalEditarProvedores.php'; ?>
     <?php require_once BASE_PATH . 'views/layouts/modals/modalsProvedores/modalAsignarCategoria.php'; ?>
-    <script src="<?php echo BASE_URL . '/assets/js/provedores/modalAsignarCategoria.js' ?>"></script>
-    <script src="<?php echo BASE_URL . '/assets/js/provedores/modalEditarProvedor.js' ?>"></script>
+    <script src="<?php echo BASE_URL . 'assets/js/provedores/modalAsignarCategoria.js' ?>"></script>
+    <script src="<?php echo BASE_URL . 'assets/js/provedores/modalEditarProvedor.js' ?>"></script>
 
 </body>
 

@@ -1,6 +1,6 @@
- <?php require_once $_SERVER['DOCUMENT_ROOT'] .'/tiendaMonica/rutas/rutaGlobal.php' ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] .'/tiendaMonica/rutas/rutaGlobal.php' ?>
 <!-- footer.php -->
-<footer class="text-center mt-5">
+<footer class="text-center">
     <div class="container">
         <p>&copy; <?= date('Y') ?> Tienda Artística. Todos los derechos reservados.</p>
     </div>
