@@ -1,0 +1,154 @@
+:root {
+  --primary: #2c3e50;         /* Sidebar elegante */
+  --accent: #e67e22;          /* Naranja vibrante */
+  --background: #fdfdfd;      /* Fondo claro y limpio */
+  --card-bg: #ffffff;         /* Fondo de tarjetas */
+  --text: #34495e;            /* Texto moderno */
+  --white: #fff;
+  --footer-bg: #1a252f;       /* Footer más profundo */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: var(--primary);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.sidebar-header {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar-nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s;
+}
+
+.sidebar-nav a:hover {
+  background-color: var(--accent);
+}
+
+.sidebar.collapsed {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: width 0.3s ease, padding 0.3s ease;
+}
+
+.main-content.expanded {
+  margin-left: 0;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.main-header h1 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.content-wrapper {
+  flex: 1;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  margin: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Tarjetas de producto */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  border: none;
+}
+.card:hover {
+  transform: scale(1.02);
+}
+.card-title {
+  color: var(--primary);
+}
+.btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+.btn-primary:hover {
+  background-color: #cf711c;
+  border-color: #cf711c;
+}
+
+/* Footer */
+.main-footer {
+  background-color: var(--footer-bg);
+  color: var(--white);
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #444;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .sidebar-nav a {
+    flex: 1 1 45%;
+    justify-content: center;
+  }
+}

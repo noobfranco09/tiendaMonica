@@ -6,7 +6,7 @@
     <?php require_once BASE_PATH.'views/layouts/head.php' ?>
 </head>
 
-<body>
+<body class="login-body">
     <?php require BASE_PATH.'views/layouts/header.php' ?>
   
     <?php require BASE_PATH.'views/layouts/login.php' ?>
