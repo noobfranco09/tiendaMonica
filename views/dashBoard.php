@@ -15,8 +15,8 @@
                 <!-- Botón Crear -->
                 <div class="row m-1">
                     <div class="col-12">
-                        <a class="btn btn-primary"
-                            href="<?php echo BASE_URL . "controller/productos/crearProducto.php" ?>">Crear Producto</a>
+                        <button class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#modalCrearProducto">Crear Prducto</button>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                                         <p class="card-text"><?php echo $producto['descripcion'] ?></p>
                                         <div class="row">
                                             <div class="col-6">
-                                                <button class="btn btn-primary btnEditarProducto"
+                                                <button class="btn btn-warning btnEditarProducto"
                                                     data-id="<?= $producto['idProducto'] ?>" data-bs-toggle="modal"
                                                     data-bs-target="#modalEditarProducto">Editar</button>
                                             </div>
@@ -44,7 +44,7 @@
                                                     method="POST">
                                                     <input type="hidden" name="btnIdProducto"
                                                         value="<?= $producto['idProducto'] ?>">
-                                                    <button class="btn btn-primary">Eliminar</button>
+                                                    <button class="btn btn-danger">Eliminar</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -60,9 +60,11 @@
         </main>
     </div>
 
-    <?php require '../views/layouts/modals/modalEditarProducto.php' ?>
-                <?php require '../views/layouts/footer.php' ?>
+    <?php require '../views/layouts/modals/modalsProductos/modalEditarProducto.php' ?>
+    <?php require BASE_PATH . 'views/layouts/footer.php' ?>
     <script src="../assets/js/ajaxJs/productoPorId.js"></script>
+    <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalCrearProducto.php' ?>  
+    
 </body>
 
 

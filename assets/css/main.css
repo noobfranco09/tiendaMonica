@@ -103,7 +103,7 @@ body, html {
 /* Tarjetas de producto */
 .card {
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 50px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
   border: none;
 }
@@ -113,14 +113,14 @@ body, html {
 .card-title {
   color: var(--primary);
 }
-.btn-primary {
+/* .btn-primary {
   background-color: var(--accent);
   border-color: var(--accent);
 }
 .btn-primary:hover {
   background-color: #cf711c;
   border-color: #cf711c;
-}
+} */
 
 /* Footer */
 .main-footer {
