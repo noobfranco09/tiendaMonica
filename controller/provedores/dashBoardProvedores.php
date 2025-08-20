@@ -1,12 +1,13 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
 session_start();
 if (!isset($_SESSION['usuario'])) {
     header('Location:' . BASE_URL . 'views/login.php');
     exit();
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
-require_once BASE_PATH . 'views/layouts/error/error.php';
+
+
 require_once BASE_PATH . '/models/mySql.php';
 $db = new Mysql();
 $query = "SELECT 
@@ -24,19 +25,19 @@ INNER JOIN categorias ON categorias.idCategoria = provedores_has_categorias.idCa
 WHERE provedores.estado = 1 
 ORDER BY provedores.idProvedor
  ";
-$queryProvedores="select * from provedores ";
-$provedores=$db->consultaPreparada($queryProvedores);
+$queryProvedores = "select * from provedores ";
+$provedores = $db->consultaPreparada($queryProvedores);
 $categoriasProvedor = $db->consultaPreparada($query);
 
 
-$queryCategorias="select * from categorias";
-$categorias=$db->consultaPreparada($queryCategorias);
+$queryCategorias = "select * from categorias";
+$categorias = $db->consultaPreparada($queryCategorias);
 $db->cerrarConexion();
 if (!$categoriasProvedor || empty($categoriasProvedor)) {
     ;
-    $_SESSION['mensaje'] = "No  hay provedores para mostrar";
-    header('Location:' . BASE_URL . 'controller/dashBoardProvedores.php');
-    exit();
+    $_SESSION['mensaje'] = "Los provedores no tienen categorías asociadas ";
+    // header('Location:' . BASE_URL . 'controller/provedores/dashBoardProvedores.php');
+    // exit();
 }
 
 require_once BASE_PATH . '/views/layouts/error/error.php';

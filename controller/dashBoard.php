@@ -6,19 +6,24 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-include "../models/mySql.php";
-
+require_once BASE_PATH . 'models/mySql.php';
 $db = new Mysql();
 $consulta = "select*from productos where estado = 1";
-$resultado = $db->consultaPreparada($consulta);
+$queryTipoproducto="select * from tipoProducto where estado = 1";
+$queryProvedores="select * from provedores where estado = 1";
 
+
+$resultado = $db->consultaPreparada($consulta);
+$tipoProducto = $db->consultaPreparada($queryTipoproducto);
+$provedores = $db->consultaPreparada($queryProvedores);
 if(!$resultado || empty($resultado))
 {
     $_SESSION['error']="No hay productos para mostrar";
-    require_once BASE_PATH.'/views/layouts/error/error.php';
-    header('Location:'.BASE_URL.'views/dashBoard.php');
-    exit();
+    
+    // header('Location:'.BASE_URL.'views/dashBoard.php');
+    // exit();
 }
+require_once BASE_PATH.'views/layouts/error/error.php';
 require BASE_PATH.'views/dashBoard.php';
 
 ?>

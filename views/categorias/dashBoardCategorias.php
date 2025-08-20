@@ -1,3 +1,4 @@
+<?php require $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 

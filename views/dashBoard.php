@@ -1,22 +1,22 @@
+<?php require $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php require '../views/layouts/head.php' ?>
+    <?php require_once BASE_PATH . 'views/layouts/head.php' ?>
 </head>
 
 <body>
     <div class="layout">
-        <?php require '../views/layouts/navbar.php' ?>
+        <?php require BASE_PATH . 'views/layouts/navbar.php' ?>
         <main class="main-content">
-            <?php require '../views/layouts/header.php' ?>
-
+            <?php require BASE_PATH . 'views/layouts/header.php' ?>
             <div class="content-wrapper">
                 <!-- Botón Crear -->
                 <div class="row m-1">
                     <div class="col-12">
                         <button class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#modalCrearProducto">Crear Prducto</button>
+                            data-bs-target="#modalCrearProducto">Crear Producto</button>
                     </div>
                 </div>
 
@@ -54,17 +54,20 @@
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
+
             </div>
 
 
         </main>
+
     </div>
 
-    <?php require '../views/layouts/modals/modalsProductos/modalEditarProducto.php' ?>
-    <?php require BASE_PATH . 'views/layouts/footer.php' ?>
-    <script src="../assets/js/ajaxJs/productoPorId.js"></script>
-    <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalCrearProducto.php' ?>  
     
+    <?php require BASE_PATH . 'views/layouts/footer.php' ?>
+    <script src="<?php BASE_URL . 'assets/js/ajaxJs/productoPorId.js' ?>"></script>
+    <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalEditarProducto.php' ?>
+    <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalCrearProducto.php' ?>
+
 </body>
 
 

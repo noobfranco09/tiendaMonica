@@ -6,6 +6,6 @@
 <!-- Bootstrap local -->
 <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/bootstrap.min.css' ?>">
 <!-- Font Awesome para íconos -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="<?php echo BASE_URL .  'assets/fontAwesome/css/all.min.css' ?>">
 <!-- Estilos personalizados -->
 <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/main.css' ?>">

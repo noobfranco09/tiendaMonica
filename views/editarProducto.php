@@ -1,7 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuario']))
-{
+if (!isset($_SESSION['usuario'])) {
     header('Location: ../views/login.php');
     exit();
 }
@@ -47,7 +46,7 @@ $producto = $producto[0];
         <section>
             <div class="row">
                 <div class="col-18 d-flex justify-content-center">
-                   
+
                 </div>
             </div>
         </section>
