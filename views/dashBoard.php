@@ -34,12 +34,16 @@
                                         </div>
                                         <p class="card-text"><?php echo $producto['descripcion'] ?></p>
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-4">
+                                                <button class="btn btn-success btnMostrarInsumos" data-bs-toggle="modal"
+                                                    data-bs-target="#modalMostrarInsumos">ver</button>
+                                            </div>
+                                            <div class="col-4">
                                                 <button class="btn btn-warning btnEditarProducto"
                                                     data-id="<?= $producto['idProducto'] ?>" data-bs-toggle="modal"
                                                     data-bs-target="#modalEditarProducto">Editar</button>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 <form action="<?= BASE_URL . 'controller/productos/eliminarProducto.php' ?>"
                                                     method="POST">
                                                     <input type="hidden" name="btnIdProducto"
@@ -62,7 +66,7 @@
 
     </div>
 
-    
+
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
     <script src="<?php BASE_URL . 'assets/js/ajaxJs/productoPorId.js' ?>"></script>
     <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalEditarProducto.php' ?>

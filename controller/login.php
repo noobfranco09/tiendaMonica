@@ -20,13 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location:' . BASE_URL . 'controller/dashBoard.php');
                 exit();
             } else {
-                echo BASE_PATH .'views/login.php';
+                require_once BASE_PATH .'views/login.php';
             }
         } else {
-            echo BASE_PATH.'views/login.php';
+            require_once BASE_PATH.'views/login.php';
         }
     } else {
-        echo BASE_PATH.'views/login.php';
+        require_once BASE_PATH.'views/login.php';
 
     }
 }else
