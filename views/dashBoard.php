@@ -12,13 +12,59 @@
         <main class="main-content">
             <?php require BASE_PATH . 'views/layouts/header.php' ?>
             <div class="content-wrapper">
-                <!-- Botón Crear -->
-                <div class="row m-1">
-                    <div class="col-12">
-                        <button class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#modalCrearProducto">Crear Producto</button>
-                    </div>
-                </div>
+
+
+                <table class="table table-striped" id="tablaProductos">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <button class="btn btn-primary " data-bs-toggle="modal"
+                                    data-bs-target="#modalCrearProducto">Crear Producto</button>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">stock</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Estado</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($resultado as $producto): ?>
+                            <tr>
+                                <td><?php echo $producto['idProducto'] ?></td>
+                                <td><?php echo $producto['nombre'] ?></td>
+                                <td><?php echo $producto['stock'] ?></td>
+                                <td><?php echo $producto['precio'] ?></td>
+                                <td><?php echo $producto['descripcion'] ?></td>
+                                <td><?php if ($producto['estado'] === 1) {
+                                    echo "Activo";
+                                } else {
+                                    echo "Inactivo";
+                                } ?></td>
+                                <td>
+                                    <button class="btn btn-success btnMostrarInsumos" data-bs-toggle="modal"
+                                        data-bs-target="#modalMostrarInsumos">ver</button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-warning btnEditarProducto"
+                                        data-id="<?= $producto['idProducto'] ?>" data-bs-toggle="modal"
+                                        data-bs-target="#modalEditarProducto">Editar</button>
+                                </td>
+                                <td>
+                                    <form action="<?= BASE_URL . 'controller/productos/eliminarProducto.php' ?>"
+                                        method="POST">
+                                        <input type="hidden" name="btnIdProducto" value="<?= $producto['idProducto'] ?>">
+                                        <button class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
 
                 <div class="row">
                     <?php if (!empty($resultado)): ?>
@@ -35,21 +81,13 @@
                                         <p class="card-text"><?php echo $producto['descripcion'] ?></p>
                                         <div class="row">
                                             <div class="col-4">
-                                                <button class="btn btn-success btnMostrarInsumos" data-bs-toggle="modal"
-                                                    data-bs-target="#modalMostrarInsumos">ver</button>
+
                                             </div>
                                             <div class="col-4">
-                                                <button class="btn btn-warning btnEditarProducto"
-                                                    data-id="<?= $producto['idProducto'] ?>" data-bs-toggle="modal"
-                                                    data-bs-target="#modalEditarProducto">Editar</button>
+
                                             </div>
                                             <div class="col-4">
-                                                <form action="<?= BASE_URL . 'controller/productos/eliminarProducto.php' ?>"
-                                                    method="POST">
-                                                    <input type="hidden" name="btnIdProducto"
-                                                        value="<?= $producto['idProducto'] ?>">
-                                                    <button class="btn btn-danger">Eliminar</button>
-                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
