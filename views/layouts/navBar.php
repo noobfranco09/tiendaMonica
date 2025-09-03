@@ -11,6 +11,8 @@
             Proveedores</a>
         <a href="<?php echo BASE_URL . 'controller/categorias/dashBoardCategorias.php' ?>"><i class="fas fa-tags"></i>
             Categorías</a>
+        <a href="<?php echo BASE_URL . 'controller/insumos/dashBoardInsumos.php' ?>"><i class="fa-solid fa-wrench"></i>
+            Insumos</a>
         <a href="<?php echo BASE_URL . 'controller/logout.php' ?>"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
     </nav>
 </aside>

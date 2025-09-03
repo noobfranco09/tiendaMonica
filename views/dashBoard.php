@@ -12,16 +12,15 @@
         <main class="main-content">
             <?php require BASE_PATH . 'views/layouts/header.php' ?>
             <div class="content-wrapper">
-
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-primary " data-bs-toggle="modal"
+                            data-bs-target="#modalCrearProducto">Crear Producto</button>
+                    </div>
+                </div>
 
                 <table class="table table-striped" id="tablaProductos">
                     <thead>
-                        <tr>
-                            <th scope="col">
-                                <button class="btn btn-primary " data-bs-toggle="modal"
-                                    data-bs-target="#modalCrearProducto">Crear Producto</button>
-                            </th>
-                        </tr>
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Nombre</th>

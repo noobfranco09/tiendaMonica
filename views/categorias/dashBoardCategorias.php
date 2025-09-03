@@ -27,7 +27,6 @@
                                             data-bs-toggle="modal" data-bs-target="#modalCrearCategoria">Crear
                                             Categoría</button></th>
 
-
                                 </tr>
                             </thead>
                             <tbody>
