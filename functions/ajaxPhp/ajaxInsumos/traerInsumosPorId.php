@@ -9,7 +9,7 @@ if (!isset($data['idInsumo'])) {
     echo json_encode(["error" => "Falta el id del insumo"]);
     exit();
 }
-$id = $data['idProvedor'];
+$id = $data['idInsumo'];
 
 try {
     $query = "select * from insumos where idInsumo =?";

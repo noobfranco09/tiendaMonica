@@ -105,7 +105,7 @@
 
 
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
-    <script src="<?php BASE_URL . 'assets/js/ajaxJs/productoPorId.js' ?>"></script>
+    <script src="<?php echo BASE_URL . 'assets/js/ajaxJs/productoPorId.js' ?>"></script>
     <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalEditarProducto.php' ?>
     <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalCrearProducto.php' ?>
 

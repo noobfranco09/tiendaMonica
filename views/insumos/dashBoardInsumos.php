@@ -15,8 +15,8 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <button class="btn btn-primary " data-bs-toggle="modal"
-                            data-bs-target="#modalCrearInsumo">Crear Insumo</button>
+                        <button class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalCrearInsumo">Crear
+                            Insumo</button>
                     </div>
                 </div>
                 <table class="table table-striped" id="tablaInsumos">
@@ -46,8 +46,8 @@
                                         data-bs-toggle="modal" data-bs-target="#modalEditarInsumo">Editar</button>
                                 </td>
                                 <td>
-                                    <form action="<?= BASE_URL . 'controller/insumos/eliminarInsumo.php' ?>" method="POST">
-                                        <input type="hidden" name="idInsumo" value="<?= $insumos['idInsumo'] ?>">
+                                    <form action="<?php echo BASE_URL . 'controller/insumos/eliminarInsumo.php' ?>" method="POST">
+                                        <input type="hidden" name="idInsumo" value="<?php echo $insumos['idInsumo'] ?>">
                                         <button class="btn btn-danger">Eliminar</button>
                                     </form>
                                 </td>
@@ -69,6 +69,7 @@
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
     <?php require BASE_PATH . 'views/layouts/modals/modalsInsumos/modalEditarInsumo.php' ?>
     <?php require BASE_PATH . 'views/layouts/modals/modalsInsumos/modalCrearInsumo.php' ?>
+    <script src="<?php echo  BASE_URL . 'assets/js/insumos/modalEditarInsumo.js' ?>"></script>
 
 </body>
 

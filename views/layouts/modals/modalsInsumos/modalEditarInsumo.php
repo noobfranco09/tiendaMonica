@@ -9,16 +9,19 @@
             <div class="modal-body">
                 <form action="<?php echo BASE_URL . 'controller/insumos/editarInsumo.php' ?>" method="POST">
                     <div class="mb-3">
+                        <input class="form-control" type="text" required name="idInsumo" id="editarIdInsumo" hidden>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label" for="nombreCategoria">Nombre del insumo</label>
-                        <input class="form-control" type="text" required name="nombre" id="nombreInsumo">
+                        <input class="form-control" type="text" required name="nombre" id="editarNombreInsumo">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="descripcionCategoria">Descripción del insumo</label>
-                        <input class="form-control" type="text" name="descripcion" id="descripcionInsumo">
+                        <input class="form-control" type="text" name="descripcion" id="editarDescripcionInsumo">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="descripcionCategoria">Cantidad del insumo</label>
-                        <input class="form-control" type="number" name="cantidad" id="cantidadInsumo" required>
+                        <input class="form-control" type="number" name="cantidad" id="editarCantidadInsumo" required>
                     </div>
                     <div class="mb-3">
                         <div class="row">

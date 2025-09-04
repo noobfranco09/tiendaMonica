@@ -38,22 +38,23 @@
                                             echo "INACTIVO";
                                         } ?></td>
                                         <td>
-
                                             <button class="btn btn-primary btnAsignarCategoria" data-bs-toggle="modal"
                                                 data-bs-target="#modalAsignarCategoria"
-                                                data-id="<?php echo $provedor['idProvedor'] ?>">
-                                                Asignar Categoría
-                                            </button>
+                                                data-id="<?php echo $provedor['idProvedor'] ?>">Asignar Categoría</button>
+                                        </td>
+                                        <td>
                                             <button class="btn btn-success btnEditarProvedor" data-bs-toggle="modal"
                                                 data-bs-target="#modalEditarProvedor"
                                                 data-id="<?php echo $provedor['idProvedor'] ?>">Editar</button>
+                                        </td>
+                                        <td>
+
                                             <form method="POST"
                                                 action="<?php echo BASE_URL . 'controller/provedores/eliminarProvedor.php' ?>"
                                                 style="display:inline;">
                                                 <button class="btn btn-danger btnEliminarProvedor" name="idProvedor"
                                                     value="<?php echo $provedor['idProvedor'] ?>">Eliminar</button>
                                             </form>
-
                                         </td>
 
                                     </tr>
