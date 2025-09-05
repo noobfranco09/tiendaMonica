@@ -9,3 +9,40 @@
     </div>
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
 </body>
+
+
+
+
+
+
+
+                <div class="row">
+                    <?php if (!empty($resultado)): ?>
+                        <?php foreach ($resultado as $producto): ?>
+                            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-around mt-3">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo $producto['nombre'] ?></h5>
+                                        <div class="row p-1">
+                                            <div class="col-6"><?php echo "Precio:<br>" . $producto['precio'] ?></div>
+                                            <div class="col-6"><?php echo "Stock:<br>" . $producto['stock'] ?></div>
+                                        </div>
+                                        <p class="card-text"><?php echo $producto['descripcion'] ?></p>
+                                        <div class="row">
+                                            <div class="col-4">
+
+                                            </div>
+                                            <div class="col-4">
+
+                                            </div>
+                                            <div class="col-4">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>

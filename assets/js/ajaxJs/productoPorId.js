@@ -60,19 +60,19 @@ async function formEditarProducto(id) {
     });
 
     const idProvedor = document.querySelector("#editarIdProvedor");
-    const responseProvedor = await fetch(
-      "../../../tiendaMonica/functions/ajaxPhp/traerProvedores.php"
-    );
+    const responseProvedor = await fetch("../../../tiendaMonica/functions/ajaxPhp/ajaxProvedores/traerProvedores.php");
     const provedores = await responseProvedor.json();
+
     provedores.forEach((provedor) => {
       if (provedor.idProvedor === producto.idProvedor) {
-        console.log(provedor.idProvedor)
+        console.log(provedor.idProvedor+"ddsdsfdsdfsfdsfds")
         let option = document.createElement("option");
         option.setAttribute("value", `${provedor.idProvedor}`);
         option.setAttribute("selected", "selected");
         option.appendChild(document.createTextNode(`${provedor.nombre}`));
         idProvedor.appendChild(option);
       } else {
+        console.log(provedor.idProvedor+"ddsdsfdsdfsfdsfds")
         let option = document.createElement("option");
         option.setAttribute("value", `${provedor.idProvedor}`);
         option.appendChild(document.createTextNode(`${provedor.nombre}`));
