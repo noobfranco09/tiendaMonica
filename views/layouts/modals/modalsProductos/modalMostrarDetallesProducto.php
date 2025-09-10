@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Cerrar"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="modalDetalleProducto">
             </div>
         </div>
         <div class="modal-footer">

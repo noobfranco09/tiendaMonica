@@ -9,7 +9,7 @@
             <div class="modal-body">
                 <form action="<?php echo BASE_URL.'controller/productos/asignarInsumo.php' ?>" method="POST">
                     <?php if (!isset($insumos)) $insumos = null; ?>
-                     <input class="form-control" type="hidden"  name="idProducto" id="idProductoModalAsinarInsumo">
+                     <input class="form-control" type="hidden"  name="idProducto" id="idProductoModalAsignarInsumo">
                     <label class="form-label" for="insumo">Asignar insumo</label>
                     <select name="idInsumo" id="agregarInsumo">
                         <?php foreach ($insumos as $insumo): ?>

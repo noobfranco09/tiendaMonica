@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuario = $resultado[0];
             if ($contraseña === $usuario['contraseña']) {
                 $_SESSION['usuario'] = $usuario['nombre'];
+                $_SESSION['idUsuario']=$usuario['idUsuario'];
                 header('Location:' . BASE_URL . 'controller/dashBoard.php');
                 exit();
             } else {
@@ -32,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }else
 {
      require BASE_PATH . "views/login.php";
-     
 }
 
 
