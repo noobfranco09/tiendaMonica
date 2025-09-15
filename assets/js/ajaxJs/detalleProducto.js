@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const btnEditar = document.querySelector(".btnMostrarDetalle");
-  btnEditar.addEventListener("click", () => {
-    const id = btnEditar.getAttribute("data-id");
-    modalDetalleProducto(id);
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("btnMostrarDetalle")) {
+      const id = e.target.getAttribute("data-id");
+      modalDetalleProducto(id);
+    }
   });
 });
 
@@ -20,10 +21,17 @@ async function modalDetalleProducto(id) {
       throw new Error(response.error);
     }
     let detalleProducto = await response.json();
-    console.log(detalleProducto)
-    const modal = document.querySelector("#modalDetalleProducto");
+    console.log(detalleProducto);
+    const tbody = document.querySelector("#tbodyDetalleProducto");
+    tbody.innerHTML = "";
     detalleProducto.forEach((detalle) => {
-      modal.appendChild(document.createTextNode(`${detalle.nombre}`));
+      let row = document.createElement("tr");
+      Object.values(detalle).forEach((valor) => {
+        const td = document.createElement("td");
+        td.appendChild(document.createTextNode(valor));
+        row.appendChild(td);
+      });
+      tbody.appendChild(row);
     });
   } catch (error) {
     console.log(error);

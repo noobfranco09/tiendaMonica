@@ -7,6 +7,18 @@
                     aria-label="Cerrar"></button>
             </div>
             <div class="modal-body" id="modalDetalleProducto">
+                <table class="table table-striped" id="tablaDetalleProducto">
+                    <thead id="theadDetalleProducto">
+                        <tr>
+                            <td>Nombre</td>
+                            <td>Descripción</td>
+                            <td>Cantidad</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyDetalleProducto">
+
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="modal-footer">
