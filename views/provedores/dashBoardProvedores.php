@@ -12,15 +12,25 @@
         <main class="main-content">
             <?php require BASE_PATH . 'views/layouts/header.php' ?>
             <div class="content-wrapper">
+
+                <div class="row p-3">
+                    <div class="col-12">
+                        <button class="btn btn-primary " data-bs-toggle="modal"
+                            data-bs-target="#modalCrearProvedor">Crear Provedor</button>
+                    </div>
+                </div>
+
                 <div class="row d-flex justify-content-center">
                     <div class="col-10 d-flex align-items-center">
                         <table class="table table-striped" id="tablaProvedores">
                             <thead>
-                                <tr>
+                                <tr class=" table-info">
                                     <th scope="col">Id</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Contacto</th>
                                     <th scope="col">Estado</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
                                     <th scope="col"></th>
 
                                 </tr>
@@ -66,18 +76,20 @@
 
                                                 <thead>
                                                     <?php if ($provedor['idProvedor'] !== $idAnterior): ?>
-                                                        <tr>
-                                                            <th scope="col" colspan="5">
-                                                                <h5>Categorías/ <?php echo $provedor['nombre']; ?> </h5>
-                                                            </th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Id Categoría </th>
-                                                            <th>Nombre Categoría</th>
-                                                            <th>Descripción </th>
-                                                            <th>Estado</th>
+                                                            <tr>
+                                                                <th scope="col" colspan="5">
+                                                                    <h5>Categorías </h5>
+                                                                </th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Id Categoría </th>
+                                                                <th>Nombre Categoría</th>
+                                                                <th>Descripción </th>
+                                                                <th>Estado</th>
+                                                                <th></th>
+                                                                <th></th>
 
-                                                        </tr>
+                                                            </tr>
                                                     <?php endif; ?>
 
                                                 </thead>

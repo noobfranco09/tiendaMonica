@@ -33,12 +33,6 @@ $categoriasProvedor = $db->consultaPreparada($query);
 $queryCategorias = "select * from categorias";
 $categorias = $db->consultaPreparada($queryCategorias);
 $db->cerrarConexion();
-if (!$categoriasProvedor || empty($categoriasProvedor)) {
-    ;
-    $_SESSION['mensaje'] = "Los provedores no tienen categorías asociadas ";
-    // header('Location:' . BASE_URL . 'controller/provedores/dashBoardProvedores.php');
-    // exit();
-}
 
 require_once BASE_PATH . '/views/layouts/error/error.php';
 require BASE_PATH . 'views/provedores/dashBoardProvedores.php';

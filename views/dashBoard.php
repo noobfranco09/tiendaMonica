@@ -31,6 +31,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php if (!empty($resultado)): ?>
                         <?php foreach ($resultado as $producto): ?>
                             <tr>
                                 <td><?php echo $producto['idProducto'] ?></td>
@@ -67,6 +68,8 @@
                                 </td>
                             </tr>
                         <?php endforeach; ?>
+                        
+                        <?php endif?>
                     </tbody>
                 </table>
                 <!--  -->

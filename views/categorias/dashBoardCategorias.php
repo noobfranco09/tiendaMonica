@@ -14,6 +14,14 @@
             <?php require BASE_PATH . '/views/layouts/header.php' ?>
             <div class="content-wrapper">
 
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-primary  btnCrearCategoria" data-bs-toggle="modal"
+                            data-bs-target="#modalCrearCategoria">CrearCategoría</button>
+                    </div>
+                </div>
+
+
                 <div class="row d-flex justify-content-center ">
                     <div class="col-10 d-flex align-items-center">
                         <table class="table table-striped" id="tablaCategorias">
@@ -23,9 +31,7 @@
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Descripción</th>
                                     <th scope="col">Estado</th>
-                                    <th scope="col"><button class="btn btn-primary  btnCrearCategoria"
-                                            data-bs-toggle="modal" data-bs-target="#modalCrearCategoria">Crear
-                                            Categoría</button></th>
+                                    <th scope="col"></th>
 
                                 </tr>
                             </thead>

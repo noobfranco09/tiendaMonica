@@ -35,15 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-    $query = "insert into provedores (nombre,contacto)
+    $query = "insert into provedores (nombre,contacto,estado)
     values (?,?)";
     $tipos = "ss";
-    $datos = [$nombre, $contacto];
+    $datos = [$nombre, $contacto,1];
     $resultado = $db->consultaPreparada($query, $tipos, $datos);
 
     if ($resultado) {
 
         $_SESSION['mensaje'] = "Agregado con éxito";
+        header('Location:'.BASE_URL. 'controller/provedores/dashBoardProvedores.php');
+        exit();
 
     }
     ;
@@ -55,12 +57,12 @@ $queryTipoProducto = "select * from tipoProducto";
 $provedores = $db->consultaPreparada($queryProvedores);
 $tipoProducto = $db->consultaPreparada($queryTipoProducto);
 if (empty($provedores)) {
-    header('Location:' . BASE_URL . 'controller/provedores.php');
+    header('Location:' . BASE_URL . 'controller/provedores/dashBoardprovedores.php');
     exit();
 }
 
 if (empty($tipoProducto)) {
-    header('Location:' . BASE_URL . 'controller/categoriaProducto.php');
+    header('Location:' . BASE_URL . 'controller/categorias/dashBoardCategorias.php');
     exit();
 }
 require BASE_PATH . 'views/crearProducto.php';

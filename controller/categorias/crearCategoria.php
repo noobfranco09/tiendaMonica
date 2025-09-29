@@ -24,10 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-    $query = "insert into categorias (nombre,descripcion)
-    values (?,?)";
-    $tipos = "ss";
-    $datos = [$nombre, $descripcion];
+    $query = "insert into categorias (nombre,descripcion,estado)
+    values (?,?,?)";
+    $tipos = "ssi";
+    $datos = [$nombre, $descripcion,1];
     $resultado = $db->consultaPreparada($query, $tipos, $datos);
 
     if ($resultado) {
