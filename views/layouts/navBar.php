@@ -13,7 +13,7 @@
             Categoría Proveedor</a>
         <a href="<?php echo BASE_URL . 'controller/insumos/dashBoardInsumos.php' ?>"><i class="fa-solid fa-wrench"></i>
             Insumos</a>
-        <a href="<?php echo BASE_URL . 'controller/usuario/cerrarSesion.php' ?>"><i class="fa-solid fa-tag"></i>
+        <a href="<?php echo BASE_URL . 'controller/tipoProductos/dashBoardTipoProductos.php' ?>"><i class="fa-solid fa-tag"></i>
             Categoría Producto</a>
 
         <a href="<?php echo BASE_URL . 'controller/usuario/cerrarSesion.php' ?>"><i class="fas fa-sign-out-alt"></i>

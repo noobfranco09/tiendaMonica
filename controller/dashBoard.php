@@ -25,7 +25,7 @@ if (!$resultado || empty($resultado)) {
     // header('Location:'.BASE_URL.'views/dashBoard.php');
     // exit();
 }
-require_once BASE_PATH . 'views/layouts/error/error.php';
+require_once BASE_PATH .'views/layouts/error/error.php';
 require BASE_PATH . 'views/dashBoard.php';
 
 ?>

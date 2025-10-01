@@ -11,27 +11,31 @@
         <?php require BASE_PATH . 'views/layouts/navbar.php' ?>
         <main class="main-content">
             <?php require BASE_PATH . 'views/layouts/header.php' ?>
-            <div class="content-wrapper">
-
+            <div class="content-box">
                 <div class="row">
                     <div class="col-12">
                         <button class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalCrearInsumo">Crear
                             Insumo</button>
                     </div>
                 </div>
+            </div>
+            <div class="content-wrapper">
+
+
                 <table class="table table-striped" id="tablaInsumos">
                     <thead>
-                        <tr>
+                        <tr class=" table-primary"  >
                             <th scope="col">Id</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripción</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Estado</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($resultado as $insumos): ?>
-                            <tr>
+                            <tr >
                                 <td><?php echo $insumos['idInsumo'] ?></td>
                                 <td><?php echo $insumos['nombre'] ?></td>
                                 <td><?php echo $insumos['descripcion'] ?></td>
@@ -44,9 +48,9 @@
                                 <td>
                                     <button class="btn btn-warning btnEditarInsumo" data-id="<?= $insumos['idInsumo'] ?>"
                                         data-bs-toggle="modal" data-bs-target="#modalEditarInsumo">Editar</button>
-                                </td>
-                                <td>
-                                    <form action="<?php echo BASE_URL . 'controller/insumos/eliminarInsumo.php' ?>" method="POST">
+                                
+                                    <form action="<?php echo BASE_URL . 'controller/insumos/eliminarInsumo.php' ?>"
+                                        method="POST">
                                         <input type="hidden" name="idInsumo" value="<?php echo $insumos['idInsumo'] ?>">
                                         <button class="btn btn-danger">Eliminar</button>
                                     </form>
@@ -67,9 +71,11 @@
 
 
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
+    <script src=" <?php echo BASE_URL . 'assets/js/dataTable/insumos.js' ?>"></script>
+
     <?php require BASE_PATH . 'views/layouts/modals/modalsInsumos/modalEditarInsumo.php' ?>
     <?php require BASE_PATH . 'views/layouts/modals/modalsInsumos/modalCrearInsumo.php' ?>
-    <script src="<?php echo  BASE_URL . 'assets/js/insumos/modalEditarInsumo.js' ?>"></script>
+    <script src="<?php echo BASE_URL . 'assets/js/insumos/modalEditarInsumo.js' ?>"></script>
 
 </body>
 

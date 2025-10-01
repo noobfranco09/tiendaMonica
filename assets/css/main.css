@@ -1,11 +1,11 @@
 :root {
-  --primary: #2c3e50;         /* Sidebar elegante */
-  --accent: #e67e22;          /* Naranja vibrante */
-  --background: #fdfdfd;      /* Fondo claro y limpio */
-  --card-bg: #ffffff;         /* Fondo de tarjetas */
-  --text: #34495e;            /* Texto moderno */
+  --primary: #2c3e50; /* Sidebar elegante */
+  --accent: #e67e22; /* Naranja vibrante */
+  --background: #fdfdfd; /* Fondo claro y limpio */
+  --card-bg: #ffffff; /* Fondo de tarjetas */
+  --text: #34495e; /* Texto moderno */
   --white: #fff;
-  --footer-bg: #1a252f;       /* Footer más profundo */
+  --footer-bg: #1a252f; /* Footer más profundo */
 }
 
 * {
@@ -14,9 +14,10 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background-color: var(--background);
   color: var(--text);
 }
@@ -83,7 +84,7 @@ body, html {
   padding: 1.5rem;
   border-bottom: 1px solid #ddd;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.20);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .main-header h1 {
@@ -97,13 +98,25 @@ body, html {
   background-color: var(--card-bg);
   border-radius: 12px;
   margin: 1rem;
-  box-shadow: 0 1px 12px rgba(0,0,0,0.40);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* contenedor pequeño para los botones, así no se modifica el content-wrapper */
+.content-box {
+  padding: 1rem;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  margin: 1rem;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  display: inline-block; /* el tamaño se ajusta al contenido */
+  width: auto;
+  
 }
 
 /* Tarjetas de producto */
 .card {
   border-radius: 12px;
-  box-shadow: 0 2px 50px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 50px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   border: none;
 }
@@ -130,7 +143,7 @@ body, html {
   padding: 1rem;
   border-top: 1px solid #444;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-  position: relative; /*relative*/ 
+  position: relative; /*relative*/
   z-index: 1;
 }
 
