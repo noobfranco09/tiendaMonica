@@ -10,21 +10,7 @@ if (!isset($_SESSION['usuario'])) {
 
 require_once BASE_PATH . '/models/mySql.php';
 $db = new Mysql();
-$query = "SELECT 
-    provedores.idProvedor,
-    provedores.nombre AS nombreProvedor,
-    provedores.contacto,
-    provedores.estado AS estadoProvedor,
-    categorias.idCategoria,
-    categorias.nombre AS nombreCategoria,
-    categorias.descripcion,
-    categorias.estado AS estadoCategoria
-FROM provedores_has_categorias 
-INNER JOIN provedores ON provedores.idProvedor = provedores_has_categorias.idProvedor 
-INNER JOIN categorias ON categorias.idCategoria = provedores_has_categorias.idCategoria 
-WHERE provedores.estado = 1 
-ORDER BY provedores.idProvedor
- ";
+$query = "SELECT * from provedores where estado = 0";
 $queryProvedores = "select * from provedores ";
 $provedores = $db->consultaPreparada($queryProvedores);
 $categoriasProvedor = $db->consultaPreparada($query);

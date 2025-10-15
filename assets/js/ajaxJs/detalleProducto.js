@@ -21,7 +21,6 @@ async function modalDetalleProducto(id) {
       throw new Error(response.error);
     }
     let detalleProducto = await response.json();
-    console.log(detalleProducto);
     const tbody = document.querySelector("#tbodyDetalleProducto");
     tbody.innerHTML = "";
     detalleProducto.forEach((detalle) => {

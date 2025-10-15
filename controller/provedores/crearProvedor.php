@@ -36,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $query = "insert into provedores (nombre,contacto,estado)
-    values (?,?)";
-    $tipos = "ss";
+    values (?,?,?)";
+    $tipos = "ssi";
     $datos = [$nombre, $contacto,1];
     $resultado = $db->consultaPreparada($query, $tipos, $datos);
 

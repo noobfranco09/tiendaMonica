@@ -1,0 +1,12 @@
+
+Gestión de provedores// terminada
+Gestión de inventario // terminado
+
+
+Gestión de pedidos // pendiente
+Gestión de compras // pendiente
+Gesstión de ventas // pendiente
+Reportes en pdf // pendiente
+Visualización de datos // pendiente
+Generación de enlances únicos // pendiente
+Panel administrativo // en trabajo

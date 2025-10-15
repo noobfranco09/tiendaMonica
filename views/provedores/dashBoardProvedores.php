@@ -31,13 +31,13 @@
                             <th scope="col"></th>
                             <th scope="col"></th>
                             <th scope="col"></th>
+                            <th scope="col"></th>
 
                         </tr>
                     </thead>
-                    <?php $idAnterior = ""; ?>
                     <tbody>
                         <?php foreach ($provedores as $provedor): ?>
-                            <tr >
+                            <tr>
                                 <th><?php echo $provedor['idProvedor'] ?></th>
                                 <td><?php echo $provedor['nombre'] ?></td>
                                 <td><?php echo $provedor['contacto'] ?></td>
@@ -50,6 +50,11 @@
                                     <button class="btn btn-primary btnAsignarCategoria" data-bs-toggle="modal"
                                         data-bs-target="#modalAsignarCategoria"
                                         data-id="<?php echo $provedor['idProvedor'] ?>">Asignar Categoría</button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-success btnVerProvedor" data-bs-toggle="modal"
+                                        data-bs-target="#modalVerProvedor"
+                                        data-id="<?php echo $provedor['idProvedor'] ?>">Ver</button>
                                 </td>
                                 <td>
                                     <button class="btn btn-success btnEditarProvedor" data-bs-toggle="modal"
@@ -68,46 +73,6 @@
 
                             </tr>
 
-
-                            <tr>
-                                <td colspan="5">
-                                    <table class="table">
-
-                                        <thead>
-                                            <?php if ($provedor['idProvedor'] !== $idAnterior): ?>
-                                                <tr>
-                                                    <th scope="col" colspan="5">
-                                                        <h5>Categorías </h5>
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <th>Id Categoría </th>
-                                                    <th>Nombre Categoría</th>
-                                                    <th>Descripción </th>
-                                                    <th>Estado</th>
-                                                    <th></th>
-                                                    <th></th>
-
-                                                </tr>
-                                            <?php endif; ?>
-
-                                        </thead>
-                                        <?php foreach ($categoriasProvedor as $categoria): ?>
-                                            <tbody>
-                                                <?php if ($categoria['idProvedor'] === $provedor['idProvedor']): ?>
-                                                    <tr>
-                                                        <th><?php echo $categoria['idCategoria'] ?></th>
-                                                        <td><?php echo $categoria['nombreCategoria'] ?></td>
-                                                        <td><?php echo $categoria['descripcion'] ?></td>
-                                                        <td><?php echo $categoria['estadoCategoria'] ?></td>
-                                                    </tr>
-                                                <?php endif; ?>
-                                            </tbody>
-                                        <?php endforeach; ?>
-                                    </table>
-                                </td>
-                            </tr>
-                            <?php $idAnterior = $provedor['idProvedor']; ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -117,9 +82,13 @@
 
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
     <script src="<?php echo BASE_URL . 'assets/js/provedores/modalEditarProvedor.js' ?>"></script>
+    <script src="<?php echo BASE_URL . 'assets/js/dataTable/provedores.js' ?>"></script>
+
     <?php require_once BASE_PATH . 'views/layouts/modals/modalsProvedores/modalCrearProvedor.php'; ?>
     <?php require_once BASE_PATH . 'views/layouts/modals/modalsProvedores/modalEditarProvedores.php'; ?>
     <?php require_once BASE_PATH . 'views/layouts/modals/modalsProvedores/modalAsignarCategoria.php'; ?>
+    <?php require_once BASE_PATH . 'views/layouts/modals/modalsProvedores/modalVerDetalleProvedor.php'; ?>
+
     <script src="<?php echo BASE_URL . 'assets/js/provedores/modalAsignarCategoria.js' ?>"></script>
     <script src="<?php echo BASE_URL . 'assets/js/provedores/modalEditarProvedor.js' ?>"></script>
 
