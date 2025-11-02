@@ -1,29 +1,41 @@
 <?php if (isset($_SESSION['error']) || isset($_SESSION['mensaje'])): ?>
-    <div class="modal fade" id="errorModalProductos" tabindex="-1" aria-labelledby="errorModalLabelProducto" aria-hidden="true">
+    <div class="modal fade" id="modalSistema" tabindex="-1" aria-labelledby="modalSistemaLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg rounded-3" style="background-color: #e3eeff;">
-                <div class="modal-header" style="background-color: #2c3e50; border-bottom: 1px solid #dee2e6;">
-                    <h5 class="modal-title fw-semibold text-white d-flex align-items-center" id="errorModalLabelProducto">
-                        <i class="bi bi-info-circle me-2 text-primary"></i> Mensaje del sistema
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+
+                <!-- Header dinámico -->
+                <div class="modal-header text-white 
+                    <?php echo isset($_SESSION['error']) ? 'bg-danger' : 'bg-success'; ?>">
+                    <h5 class="modal-title fw-semibold d-flex align-items-center" id="modalSistemaLabel">
+                        <i class="fa-solid 
+                            <?php echo isset($_SESSION['error']) ? 'fa-triangle-exclamation' : 'fa-circle-check'; ?> 
+                            me-2 fs-4"></i>
+                        <?php echo isset($_SESSION['error']) ? 'Error' : 'Éxito'; ?>
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
 
-                <div class="modal-body text-center text-black" style="font-size: 1.2rem;">
-                    <?php
-                        if (isset($_SESSION['error'])) {
-                            echo $_SESSION['error'];
-                            unset($_SESSION['error']);
-                        }
-                        if (isset($_SESSION['mensaje'])) {
-                            echo $_SESSION['mensaje'];
-                            unset($_SESSION['mensaje']);
-                        }
-                    ?>
+                <!-- Body -->
+                <div class="modal-body text-center py-4">
+                    <p class="fw-semibold fs-5 text-secondary mb-0">
+                        <?php
+                            if (isset($_SESSION['error'])) {
+                                echo htmlspecialchars($_SESSION['error']);
+                                unset($_SESSION['error']);
+                            }
+                            if (isset($_SESSION['mensaje'])) {
+                                echo htmlspecialchars($_SESSION['mensaje']);
+                                unset($_SESSION['mensaje']);
+                            }
+                        ?>
+                    </p>
                 </div>
 
-                <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="border-radius: 8px;">Cerrar</button>
+                <!-- Footer -->
+                <div class="modal-footer border-0 justify-content-center pb-4">
+                    <button type="button" class="btn btn-outline-secondary px-4 rounded-pill" data-bs-dismiss="modal">
+                        <i class="fa-solid fa-xmark me-1"></i> Cerrar
+                    </button>
                 </div>
             </div>
         </div>
@@ -31,8 +43,8 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const errorModalProducto = new bootstrap.Modal(document.getElementById('errorModalProductos'));
-            errorModalProducto.show();
+            const modalSistema = new bootstrap.Modal(document.getElementById('modalSistema'));
+            modalSistema.show();
         });
     </script>
 <?php endif; ?>

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function formEditarProducto(id) {
   try {
-    const response = await fetch(
+    const response = await fetch( 
       "../../../tiendaMonica/functions/ajaxPhp/productoPorId.php",
       {
         method: "POST",
