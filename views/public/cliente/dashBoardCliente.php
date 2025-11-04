@@ -70,10 +70,13 @@
         </main>
     </div>
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
-    <?php require BASE_PATH . 'views\layouts\modals\modalsUsuario\modalCarrito.php' ?>
-    <?php require BASE_PATH . 'views\layouts\carrito.php' ?>
+    <?php require BASE_PATH . 'views\layouts\modals\carroDeCompras\modalCarrito.php' ?>
+    <?php require BASE_PATH . 'views\layouts\modals\carroDeCompras\datosCliente.php' ?>
+    <?php require BASE_PATH . 'views\layouts\modals\carroDeCompras\carrito.php' ?>
 
-    <script src="<?php echo BASE_URL . 'assets\js\carritoDeCompras\modalAgregarProducto.js' ?>"></script>
+
+
+    <script src="<?php echo BASE_URL . 'assets/js/carritoDeCompras/modalAgregarProducto.js' ?>"></script>
 
 </body>
 

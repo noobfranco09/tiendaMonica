@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   contenedorCards.addEventListener("click", (e) => {
     const btn = e.target.closest(".btnAgregarAlCarrito");
-    if (btn) {
+    if (btn !== null) {
       datosModal(btn);
     }
   });

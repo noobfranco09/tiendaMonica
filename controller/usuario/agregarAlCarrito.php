@@ -17,11 +17,11 @@ require BASE_PATH . 'views/layouts/error/error.php';
 // Verificamos que sea POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST['id']) || empty($_POST['cantidad']) || empty($_POST['talla'])) {
-        $_SESSION['error'] = "Por favor, llene todos los campos.";
+        $_SESSION['tipoMensaje'] = "error";
+        $_SESSION['mensaje'] = "Por favor, llene todos los campos.";
         header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
         exit();
     }
-
     $id = (int) $_POST['id'];
     $cantidad = (int) $_POST['cantidad'];
     $talla = trim($_POST['talla']);
@@ -35,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     if (empty($producto)) {
-        $_SESSION['error'] = "El producto no existe.";
+        $_SESSION['tipoMensaje'] = "error";
+        $_SESSION['mensaje'] = "El producto no existe.";
         header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
         exit();
     }
@@ -45,7 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validar stock
     if ($cantidad > $stock) {
-        $_SESSION['error'] = "La cantidad solicitada supera el stock disponible.";
+        $_SESSION['tipoMensaje'] = "error";
+        $_SESSION['mensaje'] = "La cantidad solicitada supera el stock disponible.";
         header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
         exit();
     }
@@ -82,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'subtotal' => $subtotal
         ];
     }
-
+    $_SESSION['tipoMensaje'] = "exito";
     $_SESSION['mensaje'] = "Producto agregado al carrito correctamente.";
     header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
     exit();
