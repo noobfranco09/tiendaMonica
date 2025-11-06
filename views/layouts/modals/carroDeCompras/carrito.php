@@ -20,7 +20,7 @@
         <?php
         $total = 0;
         foreach ($carrito as $item):
-          $total += $item['subtotal'];
+          // $total += $item['subtotal'];
           ?>
           <div class="list-group-item d-flex justify-content-between align-items-start">
             <div>
@@ -31,7 +31,6 @@
               </small>
             </div>
             <div class="text-end">
-              <p class="fw-semibold mb-1">$<?php echo number_format($item['subtotal'], 0, ',', '.'); ?></p>
               <form method="POST" action="<?php echo BASE_URL . 'controller/usuario/eliminarDelCarrito.php'; ?>">
                 <input type="hidden" name="idProducto" value="<?php echo $item['id']; ?>">
                 <input type="hidden" name="tallaProducto" value="<?php echo $item['talla']; ?>">
@@ -46,7 +45,7 @@
       </div>
 
       <div class="border-top pt-3">
-        <p class="fw-bold fs-5 text-end mb-3">Total: $<?php echo number_format($total, 0, ',', '.'); ?></p>
+        <p class="fw-bold fs-5 text-end mb-3">Total: $<?php  number_format($total, 0, ',', '.'); ?></p>
         <!-- pa confirmar el pedido -->
         <a class="btn btn-success w-100" data-bs-dismiss="modal" data-bs-toggle="modal"
           data-bs-target="#modalDatosUsuario">

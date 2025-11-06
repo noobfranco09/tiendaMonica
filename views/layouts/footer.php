@@ -1,6 +1,6 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php' ?>
 <footer class="main-footer">
-  <p>&copy; <?= date('Y') ?> Tienda Artística. Todos los derechos reservados.</p>
+  <p>&copy; <?= date('Y') ?> Gaia studio. Todos los derechos reservados.</p>
   <script>
     const toggleBtn = document.getElementById('toggleSidebar');
     const sidebar = document.querySelector('.sidebar');

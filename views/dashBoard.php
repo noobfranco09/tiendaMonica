@@ -27,8 +27,6 @@
                         <tr class="table-primary">
                             <th scope="col">Id</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">stock</th>
-                            <th scope="col">Precio</th>
                             <th scope="col">Descripción</th>
                             <th scope="col">Estado</th>
                             <th></th>
@@ -40,11 +38,9 @@
                     <tbody>
                         <?php if (!empty($resultado)): ?>
                             <?php foreach ($resultado as $producto): ?>
-                                <tr >
+                                <tr>
                                     <td><?php echo $producto['idProducto'] ?></td>
                                     <td><?php echo $producto['nombre'] ?></td>
-                                    <td><?php echo $producto['stock'] ?></td>
-                                    <td><?php echo $producto['precio'] ?></td>
                                     <td><?php echo $producto['descripcion'] ?></td>
                                     <td><?php if ($producto['estado'] === 1) {
                                         echo "Activo";
@@ -52,17 +48,17 @@
                                         echo "Inactivo";
                                     } ?></td>
                                     <td>
-                                        <button class="btn btn-success btnMostrarDetalle" data-bs-toggle="modal"
+                                        <button class="btn btn-success btnMostrarDetalle text-nowrap" data-bs-toggle="modal"
                                             data-bs-target="#modalMostrarInsumos"
                                             data-id="<?php echo $producto['idProducto'] ?>">ver</button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-success btnAsignarInsumo" data-bs-toggle="modal"
+                                        <button class="btn btn-success btnAsignarInsumo text-nowrap" data-bs-toggle="modal"
                                             data-bs-target="#modalAsignarInsumos"
                                             data-id="<?php echo $producto['idProducto'] ?>">Asignar Insumo</button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-warning btnEditarProducto"
+                                        <button class="btn btn-warning btnEditarProducto text-nowrap"
                                             data-id="<?php echo $producto['idProducto'] ?>" data-bs-toggle="modal"
                                             data-bs-target="#modalEditarProducto">Editar</button>
                                     </td>
@@ -70,7 +66,7 @@
                                         <form action="<?php echo BASE_URL . 'controller/productos/eliminarProducto.php' ?>"
                                             method="POST">
                                             <input type="hidden" name="btnIdProducto" value="<?= $producto['idProducto'] ?>">
-                                            <button class="btn btn-danger">Eliminar</button>
+                                            <button class="btn btn-danger text-nowrap">Eliminar</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -97,5 +93,6 @@
     <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalMostrarDetallesProducto.php' ?>
     <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalAsignarInsumos.php' ?>
 
-</body> 
+</body>
+
 </html>

@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Buscar producto en la base de datos
     $producto = $db->consultaPreparada(
-        "SELECT idProducto, nombre, precio, stock FROM productos WHERE idProducto = ?",
+        "SELECT idProducto, nombre FROM productos WHERE idProducto = ?",
         "i",
         [$id]
     );
@@ -42,15 +42,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $producto = $producto[0];
-    $stock = (int) $producto['stock'];
+    //se comenta mientras se soluciona lo de las variantes que es donde se guarda el precio
+    // $stock = (int) $producto['stock'];
 
-    // Validar stock
-    if ($cantidad > $stock) {
-        $_SESSION['tipoMensaje'] = "error";
-        $_SESSION['mensaje'] = "La cantidad solicitada supera el stock disponible.";
-        header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
-        exit();
-    }
+    // // Validar stock
+    // if ($cantidad > $stock) {
+    //     $_SESSION['tipoMensaje'] = "error";
+    //     $_SESSION['mensaje'] = "La cantidad solicitada supera el stock disponible.";
+    //     header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
+    //     exit();
+    // }
 
     // Iniciar carrito si no existe
     if (!isset($_SESSION['carrito'])) {
@@ -65,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_SESSION['carrito'] as &$item) {
         if ($item['id'] === $producto['idProducto'] && $item['talla'] === $talla) {
             $item['cantidad'] += $cantidad;
-            $item['subtotal'] = $item['cantidad'] * $item['precio']; // recalcular subtotal
+            // $item['subtotal'] = $item['cantidad'] * $item['precio']; // recalcular subtotal
             $producto_encontrado = true;
             break;
         }
@@ -77,11 +78,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['carrito'][] = [
             'id' => $producto['idProducto'],
             'nombre' => $producto['nombre'],
-            'precio' => (float) $producto['precio'],
+            // 'precio' => (float) $producto['precio'],
             'cantidad' => $cantidad,
             'talla' => $talla,
             'notas' => $notas,
-            'subtotal' => $subtotal
+            // 'subtotal' => $subtotal
         ];
     }
     $_SESSION['tipoMensaje'] = "exito";

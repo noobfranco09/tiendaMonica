@@ -8,7 +8,7 @@
                     aria-label="Cerrar"></button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo BASE_URL.'controller/productos/crearProducto.php' ?>" method="POST">
+                <form action="<?php echo BASE_URL . 'controller/productos/crearProducto.php' ?>" method="POST">
                     <div class="mb-3">
                         <label class="form-label" for="nombreProducto">Nombre del producto</label>
                         <input class="form-control" type="text" required name="nombreProducto" id="nombreProducto">
@@ -17,25 +17,6 @@
                         <label class="form-label" for="descripcionProducto">Descripción del producto</label>
                         <input class="form-control" type="text" required name="descripcionProducto"
                             id="descripcionProducto">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="stockProducto">Stock del producto</label>
-                        <input class="form-control" type="number" required name="stockProducto" id="stockProducto">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="precioProducto">Precio del producto</label>
-                        <input class="form-control" type="number" required name="precioProducto" id="precioProducto">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="idProvedor">Provedores:</label>
-                        <select name="idProvedor" id="idProvedor">
-                            <option value="" disabled selected>Selecciona un provedor</option>
-                            <?php foreach ($provedores as $provedor): ?>
-                                <option value="<?php echo $provedor['idProvedor'] ?>"><?php echo $provedor['nombre'] ?>
-                                </option>
-                            <?php endforeach; ?>
-
-                        </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="idTipoProducto">Categoria del producto: </label>

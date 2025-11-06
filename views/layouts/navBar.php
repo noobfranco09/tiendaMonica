@@ -3,7 +3,8 @@
 
 
     <div class="sidebar-header">
-        <h2><i class="fas fa-palette"></i> Tienda</h2>
+        <h2><i class="fas fa-palette"></i>
+            Gaia studio</h2>
     </div>
     <nav class="sidebar-nav">
         <a href="<?php echo BASE_URL . 'controller/dashBoard.php' ?>"><i class="fas fa-home"></i>Inicio</a>
@@ -18,10 +19,12 @@
         <a href="<?php echo BASE_URL . 'controller/tipoProductos/dashBoardTipoProductos.php' ?>"><i
                 class="fa-solid fa-tag"></i>
             Categoría Producto</a>
-
-        <a href="<?php echo BASE_URL . 'controller/usuario/cerrarSesion.php' ?>"><i class="fas fa-sign-out-alt"></i>
+        <a href="<?php echo BASE_URL . 'controller\variantes\dashBoardVariantes.php' ?>"><i
+                class="fa-solid fa-tag"></i>
+            Variantes de producto</a>
+        <a href="<?php echo BASE_URL . 'controller/cerrarSesion.php' ?>"><i class="fas fa-sign-out-alt"></i>
             Cerrar sesión</a>
-
+        
 
     </nav>
 </aside>

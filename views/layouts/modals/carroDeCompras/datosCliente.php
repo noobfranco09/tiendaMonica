@@ -27,6 +27,12 @@
                         <input type="text" class="form-control rounded-pill px-3" id="apellidos" name="apellidos"
                             placeholder="Ej: Perez Rios" required>
                     </div>
+                    <!-- número de celular, no se sabe si se deja o si no es necesario -->
+                    <div class="mb-3">
+                        <label for="celular" class="form-label fw-semibold">Número de celular</label>
+                        <input type="number" class="form-control rounded-pill px-3" id="celular" name="celular"
+                            placeholder="Ej: 3141233211" required>
+                    </div>
                     <!-- Dirección -->
                     <div class="mb-3">
                         <label for="direccion" class="form-label fw-semibold">Dirección</label>

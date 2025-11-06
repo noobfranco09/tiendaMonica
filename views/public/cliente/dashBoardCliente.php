@@ -40,15 +40,12 @@
                                             <p class="card-text text-muted mb-3">
                                                 <?php echo htmlspecialchars($producto['descripcion']); ?>
                                             </p>
-                                            <p class="fw-bold mb-3">$<?php echo number_format($producto['precio'], 2); ?></p>
                                             <div class="d-grid">
                                                 <button class="btnAgregarAlCarrito btn btn-primary btn-sm"
                                                     data-bs-toggle="modal" data-bs-target="#modalCarrito"
                                                     data-nombre="<?php echo htmlspecialchars($producto['nombre']); ?>"
-                                                    data-precio="<?php echo number_format($producto['precio'], 2); ?>"
                                                     data-descripcion="<?php echo htmlspecialchars($producto['descripcion']); ?>"
                                                     data-id="<?php echo $producto['idProducto']; ?>"
-                                                    data-stock="<?php echo $producto['stock']; ?>"
                                                     data-imagen="<?php echo empty($producto['imagen']) ? '0' : htmlspecialchars($producto['imagen']); ?>">
                                                     <i class="fa-solid fa-cart-plus me-1"></i> Agregar al carrito
                                                 </button>
