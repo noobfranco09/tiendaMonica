@@ -15,6 +15,7 @@ SELECT
     v.nombre AS nombre_variante,
     v.precio,
     v.stock,
+    v.estado,
     p.nombre AS nombre_producto,
     c.nombre AS color,
     t.nombre AS talla
@@ -24,9 +25,20 @@ LEFT JOIN colores c ON v.colores_idColor = c.idColor
 LEFT JOIN tallas t ON v.tallas_idTalla = t.idTalla
 ORDER BY v.idVariante DESC
 ";
+$query2 = "select * from tallas";
+$query3 = "select * from colores where estado = 1";
+$query4 = "select * from productos where estado = 1";
+
+
+$tallas = $db->consultaPreparada($query2);
+$colores = $db->consultaPreparada($query3);
+$productos = $db->consultaPreparada($query4);
+
 
 
 $variantes = $db->consultaPreparada($query);
-
+require BASE_PATH . 'views\layouts\error\error.php';
 require BASE_PATH . 'views\variantes\dashBoardVariantes.php';
+
+
 ?>

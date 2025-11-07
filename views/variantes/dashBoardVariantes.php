@@ -153,5 +153,10 @@
         </main>
     </div>
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
+    <?php require BASE_PATH . 'views\layouts\modals\variantes\modalCrearVariante.php' ?>
+    <?php require BASE_PATH . 'views\layouts\modals\tallas\modalCrearTalla.php' ?>
+    <?php require BASE_PATH . 'views\layouts\modals\colores\modalCrearColor.php' ?>
+
+
     <script src="<?php BASE_URL . 'assets\js\dataTable\variantes.js' ?>"></script>
 </body>
