@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (in_array($tipoArchivo, $tiposPermitidos)) {
             if (move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaArchivo)) {
-                $imagen = 'public/uploads/variantes/' . $nombreArchivo;
+                $imagen = 'images/uploads/variantes/' . $nombreArchivo;
             } else {
                 $_SESSION['tipoMensaje'] = "error.";
                 $_SESSION['mensaje'] = "error al subir la imagen.";

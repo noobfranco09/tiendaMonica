@@ -14,77 +14,101 @@ if (!isset($_SESSION['usuario']) && !isset($_SESSION['cliente'])) {
 $db = new Mysql();
 require BASE_PATH . 'views/layouts/error/error.php';
 
-// Verificamos que sea POST
+// Solo aceptar POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (empty($_POST['id']) || empty($_POST['cantidad']) || empty($_POST['talla'])) {
+    if (empty($_POST['idVariante']) || empty($_POST['cantidad'])) {
         $_SESSION['tipoMensaje'] = "error";
         $_SESSION['mensaje'] = "Por favor, llene todos los campos.";
         header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
         exit();
     }
-    $id = (int) $_POST['id'];
+
+    $idVariante = (int) $_POST['idVariante'];
     $cantidad = (int) $_POST['cantidad'];
-    $talla = trim($_POST['talla']);
     $notas = isset($_POST['notas']) ? trim($_POST['notas']) : '';
 
-    // Buscar producto en la base de datos
-    $producto = $db->consultaPreparada(
-        "SELECT idProducto, nombre FROM productos WHERE idProducto = ?",
-        "i",
-        [$id]
-    );
+    // Buscar variante en la base de datos
+    $consulta = "
+        SELECT 
+            v.idVariante,
+            v.nombre AS nombreVariante,
+            v.precio,
+            v.stock,
+            v.imagen,
+            p.nombre AS nombreProducto,
+            t.nombre AS talla,
+            c.nombre AS color
+        FROM variantes v
+        INNER JOIN productos p ON v.productos_idProducto = p.idProducto
+        INNER JOIN tallas t ON v.tallas_idTalla = t.idTalla
+        INNER JOIN colores c ON v.colores_idColor = c.idColor
+        WHERE v.idVariante = ? AND v.estado = 1 AND p.estado = 1
+    ";
 
-    if (empty($producto)) {
+    $variante = $db->consultaPreparada($consulta, "i", [$idVariante]);
+
+    if (empty($variante)) {
         $_SESSION['tipoMensaje'] = "error";
-        $_SESSION['mensaje'] = "El producto no existe.";
+        $_SESSION['mensaje'] = "El producto seleccionada no existe o está inactiva.";
         header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
         exit();
     }
 
-    $producto = $producto[0];
-    //se comenta mientras se soluciona lo de las variantes que es donde se guarda el precio
-    // $stock = (int) $producto['stock'];
+    $variante = $variante[0];
 
-    // // Validar stock
-    // if ($cantidad > $stock) {
-    //     $_SESSION['tipoMensaje'] = "error";
-    //     $_SESSION['mensaje'] = "La cantidad solicitada supera el stock disponible.";
-    //     header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
-    //     exit();
-    // }
+    // Validar stock
+    if ($cantidad > (int) $variante['stock']) {
+        $_SESSION['tipoMensaje'] = "error";
+        $_SESSION['mensaje'] = "La cantidad solicitada supera el stock disponible.";
+        header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
+        exit();
+    }
 
     // Iniciar carrito si no existe
     if (!isset($_SESSION['carrito'])) {
         $_SESSION['carrito'] = [];
     }
 
-    // Calcular subtotal del producto
-    $subtotal = $cantidad * (float) $producto['precio'];
+    $subtotal = $cantidad * (float) $variante['precio'];
 
-    // Verificar si ya existe el producto con la misma talla
-    $producto_encontrado = false;
+    // pa verificar que no pueda agregar productos de más cuando se agrega de uno en uno o varios desde la modal
+    // ejemplo,el usuario primero agrega 6 productos y el stock es de 10, si luego vuelve a agregar 6, superaría 
+    // el stock y es entonces cuando esta validación cobra vida
+    if ($item['cantidad'] + $cantidad > $variante['stock']) {
+        $_SESSION['tipoMensaje'] = "error";
+        $_SESSION['mensaje'] = "La cantidad total supera el stock disponible.";
+        header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
+        exit();
+    }
+
+    // Verificar si ya existe esa variante en el carrito
+    $encontrada = false;
     foreach ($_SESSION['carrito'] as &$item) {
-        if ($item['id'] === $producto['idProducto'] && $item['talla'] === $talla) {
+        if ($item['idVariante'] === $variante['idVariante']) {
             $item['cantidad'] += $cantidad;
-            // $item['subtotal'] = $item['cantidad'] * $item['precio']; // recalcular subtotal
-            $producto_encontrado = true;
+            $item['subtotal'] = $item['cantidad'] * $item['precio'];
+            $encontrada = true;
             break;
         }
     }
     unset($item); // romper la referencia
 
-    // Si no existe, agregar nuevo
-    if (!$producto_encontrado) {
+    // Si no está, agregar nuevo ítem
+    if (!$encontrada) {
         $_SESSION['carrito'][] = [
-            'id' => $producto['idProducto'],
-            'nombre' => $producto['nombre'],
-            // 'precio' => (float) $producto['precio'],
+            'idVariante' => $variante['idVariante'],
+            'nombreProducto' => $variante['nombreProducto'],
+            'nombreVariante' => $variante['nombreVariante'],
+            'precio' => (float) $variante['precio'],
             'cantidad' => $cantidad,
-            'talla' => $talla,
+            'talla' => $variante['talla'],
+            'color' => $variante['color'],
+            'imagen' => $variante['imagen'],
+            'subtotal' => $subtotal,
             'notas' => $notas,
-            // 'subtotal' => $subtotal
         ];
     }
+
     $_SESSION['tipoMensaje'] = "exito";
     $_SESSION['mensaje'] = "Producto agregado al carrito correctamente.";
     header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');

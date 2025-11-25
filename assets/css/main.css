@@ -1,6 +1,6 @@
 :root {
-  --primary: #2c3e50; /* Sidebar elegante */
-  --accent: #e67e22; /* Naranja vibrante */
+  --primary: #2A7FBA; /* Sidebar elegante */
+  --accent: #FF6F61; /* Naranja vibrante */
   --background: #fdfdfd; /* Fondo claro y limpio */
   --card-bg: #ffffff; /* Fondo de tarjetas */
   --text: #34495e; /* Texto moderno */
@@ -54,7 +54,7 @@ html {
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: background 0.3s;
+  transition: background 0.6s;
 }
 
 .sidebar-nav a:hover {

@@ -17,7 +17,7 @@
         <!-- COLUMNA DERECHA (FORMULARIO) -->
         <div class="col-md-8 p-4">
           <form method="POST" action="<?php echo BASE_URL . 'controller/usuario/agregarAlCarrito.php'; ?>">
-            <input type="hidden" name="id" id="modalProductoId">
+            <input type="hidden" name="idVariante" id="idVariante">
 
             <div class="mb-3">
               <label for="cantidad" class="form-label fw-semibold">Cantidad</label>
