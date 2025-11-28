@@ -2,8 +2,8 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
 require BASE_PATH . 'functions/dieAndDumb/depurar.php';
 require BASE_PATH . 'models/mySql.php';
+require BASE_PATH . 'functions\helpers\session.php';
 
-session_start();
 // Solo permitir acceso a usuarios o clientes autenticados
 if (!isset($_SESSION['usuario']) && !isset($_SESSION['cliente'])) {
     header('Location:' . BASE_URL . 'views/noAutorizado.php');

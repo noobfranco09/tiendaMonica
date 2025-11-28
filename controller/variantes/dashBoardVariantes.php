@@ -1,8 +1,8 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
 require BASE_PATH . '/models/mySql.php';
+require BASE_PATH . 'functions\helpers\session.php';
 
-session_start();
 if (!isset($_SESSION['usuario'])) {
     header('Location:' . BASE_URL . 'views/login.php');
     exit();

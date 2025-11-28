@@ -7,9 +7,9 @@
             Gaia studio</h2>
     </div>
     <nav class="sidebar-nav">
-        <a href="<?php echo BASE_URL . 'controller/dashBoard.php' ?>"><i class="fas fa-home"></i>Inicio</a>
+        <a href="<?php echo BASE_URL . 'controller/dashBoard.php' ?>"><i class="fas fa-home"></i>Productos</a>
         <a href="<?php echo BASE_URL . 'controller/usuario/dashBoardUsuario.php' ?>"><i
-                class="fa-solid fa-shirt"></i>Productos</a>
+                class="fa-solid fa-shirt"></i>Tienda</a>
         <a href="<?php echo BASE_URL . 'controller/provedores/dashBoardProvedores.php' ?>"><i class="fas fa-truck"></i>
             Proveedores</a>
         <a href="<?php echo BASE_URL . 'controller/categorias/dashBoardCategorias.php' ?>"><i class="fas fa-tags"></i>

@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/tiendaMonica/rutas/rutaGlobal.php';
-session_start();
+require BASE_PATH . 'functions\helpers\session.php';
 if (!isset($_SESSION['usuario'])) {
     header('Location:'.BASE_URL.'views/login.php');
     exit();

@@ -1,8 +1,8 @@
 <?php
-session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
+require BASE_PATH . 'functions\helpers\session.php';
 require BASE_PATH . "functions/sanitizarVariables.php";
-require BASE_PATH . "views/layouts/error/error.php";
+require_once BASE_PATH . "views/layouts/error/error.php";
 
 require BASE_PATH . "models/mySql.php";
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } else {
             $_SESSION['tipoMensaje'] = 'error';
-            $_SESSION['mensaje'] = 'Usuaerio no encontrado';
+            $_SESSION['mensaje'] = 'Usuario no encontrado';
             header('Location:' . BASE_URL . 'views/login.php');
             exit();
         }

@@ -1,6 +1,8 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/tiendaMonica/rutas/rutaGlobal.php';
 require_once BASE_PATH.'/models/mySql.php';
+require BASE_PATH . 'functions\helpers\session.php';
+
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

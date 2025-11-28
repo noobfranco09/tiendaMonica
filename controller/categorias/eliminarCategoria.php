@@ -1,6 +1,8 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
 require_once BASE_PATH.'/models/mySql.php';
+require BASE_PATH . 'functions\helpers\session.php';
+
 if (!isset($_POST['eliminarIdCategoria'])) {
     $_SESSION['error'] = "No se seleccionó ninguna categoría";
     header('Location:' . BASE_URL . 'controller/categorias/dashBoardCategorias.php');

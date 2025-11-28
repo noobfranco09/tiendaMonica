@@ -13,7 +13,7 @@
     </header>
     <?php require BASE_PATH . 'views/layouts/login.php'; ?>
     <?php require BASE_PATH . 'views/layouts/footerLogin.php'; ?>
-    <?php require BASE_PATH . 'views/layouts/error/error.php'; ?>
+    <?php require_once BASE_PATH . 'views/layouts/error/error.php'; ?>
 
 </body>
 

@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
-session_start();
+require BASE_PATH . 'functions\helpers\session.php';
 session_unset();
 session_destroy();
 if (ini_get("session.use_cookies")) {
