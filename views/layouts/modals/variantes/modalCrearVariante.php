@@ -74,7 +74,7 @@
                             <select class="form-select bg-dark text-white border-secondary" 
                                     name="tallas_idTalla" id="tallas_idTalla" required>
                                 <option value="" disabled selected>Selecciona</option>
-                                <?php foreach ($tallas as $talla): ?>
+                                <?php foreach ($resultadoTallas as $talla): ?>
                                     <option value="<?php echo $talla['idTalla']; ?>">
                                         <?php echo htmlspecialchars($talla['nombre']); ?>
                                     </option>
@@ -89,7 +89,7 @@
                             <select class="form-select bg-dark text-white border-secondary" 
                                     name="colores_idColor" id="colores_idColor" required>
                                 <option value="" disabled selected>Selecciona</option>
-                                <?php foreach ($colores as $color): ?>
+                                <?php foreach ($resultadoColores as $color): ?>
                                     <option value="<?php echo $color['idColor']; ?>">
                                         <?php echo htmlspecialchars($color['nombre']); ?>
                                     </option>

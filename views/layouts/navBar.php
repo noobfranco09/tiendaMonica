@@ -24,6 +24,8 @@
 
         <a href="<?php echo BASE_URL . 'views\pedidos\dashBoardPedidos.php' ?>"><i class="fa-solid fa-tag"></i>
             Pedidos</a>
+        <a href="<?php echo BASE_URL . 'views/dashBoardReportes.php' ?>"><i class="fas fa-sign-out-alt"></i>
+            Reportes</a>
         <a href="<?php echo BASE_URL . 'controller/cerrarSesion.php' ?>"><i class="fas fa-sign-out-alt"></i>
             Cerrar sesión</a>
 

@@ -14,7 +14,7 @@ $db = new Mysql();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validar campos obligatorios
     $camposRequeridos = ['nombre', 'stock', 'precio', 'estado', 'tallas_idTalla', 'colores_idColor', 'productos_idProducto'];
-    foreach ($camposRequeridos as $campo) {     
+    foreach ($camposRequeridos as $campo) {
         if (empty($_POST[$campo])) {
             $_SESSION['tipoMensaje'] = "error";
             $_SESSION['mensaje'] = "Por favor, complete todos los campos requeridos.";
@@ -70,10 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Insertar en base de datos
     $query = "INSERT INTO variantes 
-              (nombre, stock, precio, estado, imagen, tallas_idTalla, colores_idColor, productos_idProducto)
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    $tipos = "sidisiii";
-    $datos = [$nombre, $stock, $precio, $estado, $imagen, $talla, $color, $producto];
+(nombre, precio, estado, idProducto, tallas_idTalla, stock, imagen, colores_idColor)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+";
+    $tipos = "sdiisiis";
+    $datos = [$nombre, $precio, $estado, $producto, $talla, $stock, $imagen, $color];
+
 
     $resultado = $db->consultaPreparada($query, $tipos, $datos);
 
@@ -89,9 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location:' . BASE_URL . 'controller\variantes\dashBoardVariantes.php');
         exit();
     }
-}else{
-header('Location:' . BASE_URL . 'views\noAutorizado.php');
-exit();
+} else {
+    header('Location:' . BASE_URL . 'views\noAutorizado.php');
+    exit();
 
 }
 

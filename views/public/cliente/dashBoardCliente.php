@@ -24,47 +24,34 @@
                 <div class="container py-4" id="contenedorCards">
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         <?php if (!empty($resultado)): ?>
-                            <?php foreach ($resultado as $variante): ?>
+                            <?php foreach ($resultado as $producto): ?>
                                 <div class="col">
                                     <div class="card h-100 shadow p-3 bg-body-tertiary rounded">
-                                        <img src="<?php echo BASE_URL . $variante['imagen']; ?>" class="card-img-top"
-                                            alt="<?php echo htmlspecialchars($variante['nombreVariante']); ?>">
+
+                                        <img src="<?php echo BASE_URL . $producto['imagen']; ?>" class="card-img-top"
+                                            alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
 
                                         <div class="card-body">
                                             <h5 class="card-title mb-2">
-                                                <?php echo htmlspecialchars($variante['nombreProducto']); ?> -
-                                                <span
-                                                    class="text-muted small"><?php echo htmlspecialchars($variante['nombreVariante']); ?></span>
+                                                <?php echo htmlspecialchars($producto['nombre']); ?>
                                             </h5>
 
                                             <p class="card-text text-muted mb-2">
-                                                <?php echo htmlspecialchars($variante['descripcion']); ?>
+                                                <?php echo htmlspecialchars($producto['descripcion']); ?>
                                             </p>
-
-                                            <p class="mb-2"><strong>Talla:</strong>
-                                                <?php echo htmlspecialchars($variante['talla']); ?></p>
-                                            <p class="mb-3"><strong>Color:</strong>
-                                                <?php echo htmlspecialchars($variante['color']); ?></p>
-                                            <p class="fw-bold text-success">
-                                                $<?php echo number_format($variante['precio'], 2); ?></p>
 
                                             <div class="d-grid">
                                                 <button class="btnAgregarAlCarrito btn btn-primary btn-sm"
                                                     data-bs-toggle="modal" data-bs-target="#modalCarrito"
-                                                    data-nombre="<?php echo htmlspecialchars($variante['nombreVariante']); ?>"
-                                                    data-id="<?php echo $variante['idVariante']; ?>"
-                                                    data-precio="<?php echo $variante['precio']; ?>"
-                                                    data-imagen="<?php echo htmlspecialchars($variante['imagen']); ?>"
-                                                    data-stock="<?php echo htmlspecialchars($variante['stock']); ?>">
-
-
-                                                    <i class="fa-solid fa-cart-plus me-1"></i> Agregar al carrito
+                                                    data-producto="<?php echo $variante['idProducto']; ?>">
+                                                    <i class="fa-solid fa-cart-plus me-1"></i> Ver producto
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
+
 
                         <?php else: ?>
                             <div class="col-12 text-center">
@@ -78,14 +65,16 @@
             </div>
         </main>
     </div>
+
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
+    <script src="<?php echo BASE_URL . 'assets\js\carritoDeCompras\modalAgregarProducto.js' ?>"></script>
+
     <?php require BASE_PATH . 'views\layouts\modals\carroDeCompras\modalCarrito.php' ?>
     <?php require BASE_PATH . 'views\layouts\modals\carroDeCompras\datosCliente.php' ?>
     <?php require BASE_PATH . 'views\layouts\modals\carroDeCompras\carrito.php' ?>
 
 
 
-    <script src="<?php echo BASE_URL . 'assets/js/carritoDeCompras/modalAgregarProducto.js' ?>"></script>
 
 </body>
 

@@ -6,17 +6,23 @@
                 <h5 class="modal-title fw-semibold text-light" id="labelCrearColor">
                     <i class="fa-solid fa-palette me-2 text-primary"></i> Crear Color
                 </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Cerrar"></button>
             </div>
 
             <div class="modal-body">
                 <form action="<?php echo BASE_URL . 'controller/colores/crearColor.php' ?>" method="POST">
                     <div class="mb-3">
                         <label class="form-label text-secondary" for="nombreColor">Nombre del Color</label>
-                        <input class="form-control bg-dark text-white border-secondary" 
-                               type="text" name="nombreColor" id="nombreColor" placeholder="Ej: Rojo, Azul, Verde..." required>
+                        <input class="form-control bg-dark text-white border-secondary" type="text" name="nombreColor"
+                            id="nombreColor" placeholder="Ej: Rojo, Azul, Verde..." required>
                     </div>
-<!-- 
+                    <div class="mb-3">
+                        <label class="form-label text-secondary" for="codigo">Código</label>
+                        <input class="form-control bg-dark text-white border-secondary" type="text" name="codigo"
+                            id="codigo"  placeholder="#FFFFFF" required>
+                    </div>
+                    <!-- 
                     <div class="mb-3">
                         <label class="form-label text-secondary" for="codigoHex">Código Hexadecimal (opcional)</label>
                         <input class="form-control bg-dark text-white border-secondary" 
