@@ -8,7 +8,7 @@ if (!isset($_SESSION['usuario'])) {
 
 require_once BASE_PATH . 'models/mySql.php';
 $db = new Mysql();
-$consulta = "SELECT * from productos WHERE estado = 1;
+$consulta = "SELECT * from productos ;
 ";
 $queryTipoproducto = "select * from tipoProducto where estado = 1";
 $consultaInsumos="select * from insumos where estado = 1";

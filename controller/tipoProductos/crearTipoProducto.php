@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $nombre = trim($_POST['nombre'] ?? '');
-    $descripcion = trim($_POST['descripcion'] ?? '');
+    $nombre = trim($_POST['nombreCategoriaProducto'] ?? '');
+    $descripcion = trim($_POST['descripcionCategoriaProducto'] ?? '');
 
     if ($nombre === '' || !preg_match('/^[\p{L}0-9\s\-_,.()]+$/u', $nombre)) {
         $_SESSION['tipoMensaje'] = 'error';
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $db->consultaPreparada($query, $tipos, $datos);
 
     if ($resultado) {
-
+        $_SESSION['tipoMensaje'] = 'exito';
         $_SESSION['mensaje'] = "Agregado con éxito";
         header('Location:' . BASE_URL . 'controller/tipoProductos/dashBoardTipoProductos.php');
         exit();

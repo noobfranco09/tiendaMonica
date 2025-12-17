@@ -27,8 +27,7 @@ async function modalEditarProvedores(id) {
     
     document.querySelector("#editarIdCategoria").value = categoria[0].idCategoria;
     document.querySelector("#editarNombreCategoria").value = categoria[0].nombre;
-    document.querySelector("#editarDescricionCategoria").value =
-      categoria[0].descripcion;
+    document.querySelector("#editarDescricionCategoria").value = categoria[0].descripcion;
   } catch (error) {
     console.log(error + " error en el fetch de las categorías");
   }

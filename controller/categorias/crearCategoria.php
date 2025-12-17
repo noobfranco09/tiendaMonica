@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $db->consultaPreparada($query, $tipos, $datos);
 
     if ($resultado) {
+        $_SESSION['tipoMensaje'] = 'exito';
 
         $_SESSION['mensaje'] = "Agregado con éxito";
         header('Location:' . BASE_URL . 'controller/categorias/dashBoardCategorias.php');

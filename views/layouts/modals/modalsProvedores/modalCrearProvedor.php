@@ -14,8 +14,8 @@
                         <input class="form-control" type="text" required name="nombreProvedor" id="nombreProvedor">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="contactoProvedor">Descripción del provedor</label>
-                        <input class="form-control" type="text" required name="contactoProvedor"
+                        <label class="form-label" for="contactoProvedor">contacto del provedor</label>
+                        <input class="form-control" type="number" required name="contactoProvedor"
                             id="contactoProvedor">
                     </div>
 

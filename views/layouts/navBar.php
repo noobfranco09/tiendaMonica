@@ -19,12 +19,12 @@
         <a href="<?php echo BASE_URL . 'controller/tipoProductos/dashBoardTipoProductos.php' ?>"><i
                 class="fa-solid fa-tag"></i>
             Categoría Producto</a>
-        <a href="<?php echo BASE_URL . 'controller\variantes\dashBoardVariantes.php' ?>"><i class="fa-solid fa-tag"></i>
+        <a href="<?php echo BASE_URL . 'controller\variantes\dashBoardVariantes.php' ?>"><i class="fas fa-code-branch"></i>
             Variantes de producto</a>
 
-        <a href="<?php echo BASE_URL . 'views\pedidos\dashBoardPedidos.php' ?>"><i class="fa-solid fa-tag"></i>
+        <a href="<?php echo BASE_URL . 'controller/pedidos/dashBoardPedidos.php' ?>"><i class="fas fa-shopping-cart"></i>
             Pedidos</a>
-        <a href="<?php echo BASE_URL . 'views/dashBoardReportes.php' ?>"><i class="fas fa-sign-out-alt"></i>
+        <a href="<?php echo BASE_URL . 'views/dashBoardReportes.php' ?>"><i class="fas fa-chart-bar"></i>
             Reportes</a>
         <a href="<?php echo BASE_URL . 'controller/cerrarSesion.php' ?>"><i class="fas fa-sign-out-alt"></i>
             Cerrar sesión</a>

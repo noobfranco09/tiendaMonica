@@ -65,8 +65,13 @@
                                     <td>
                                         <form action="<?php echo BASE_URL . 'controller/productos/eliminarProducto.php' ?>"
                                             method="POST">
-                                            <input type="hidden" name="btnIdProducto" value="<?= $producto['idProducto'] ?>">
-                                            <button class="btn btn-danger text-nowrap">Eliminar</button>
+                                            <?php if ($producto['estado'] === 0): ?>
+                                                <input type="hidden" name="btnIdProducto" value="<?= $producto['idProducto'] ?>">
+                                                <button class="btn btn-success text-nowrap">Activar</button>
+                                            <?php else: ?>
+                                                <input type="hidden" name="btnIdProducto" value="<?= $producto['idProducto'] ?>">
+                                                <button class="btn btn-danger text-nowrap">Eliminar</button>
+                                            <?php endif ?>
                                         </form>
                                     </td>
                                 </tr>
@@ -84,13 +89,14 @@
 
     </div>
     <script>
-        window.APP_URL ="<?= BASE_URL ?>";
+        window.APP_URL = "<?= BASE_URL ?>";
     </script>
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
     <script src=" <?php echo BASE_URL . 'assets/js/dataTable/productos.js' ?>"></script>
     <script src="<?php echo BASE_URL . 'assets/js/ajaxJs/productoPorId.js' ?>"></script>
     <script src="<?php echo BASE_URL . 'assets/js/ajaxJs/asignarInsumo.js' ?>"></script>
     <script src="<?php echo BASE_URL . 'assets/js/ajaxJs/detalleProducto.js' ?>"></script>
+    <script src="<?php echo BASE_URL . 'assets/js/ajaxJs/editarProducto.js' ?>"></script>
     <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalEditarProducto.php' ?>
     <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalCrearProducto.php' ?>
     <?php require BASE_PATH . 'views/layouts/modals/modalsProductos/modalMostrarDetallesProducto.php' ?>

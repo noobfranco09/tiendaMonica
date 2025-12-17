@@ -15,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (
         !isset($_POST['idInsumo']) || !isset($_POST['idProducto'])
     ) {
-        $_SESSION['error'] = "Por favor, llene todos los campos";
+        $_SESSION['tipoMensaje']="error";
+        $_SESSION['mensaje'] = "Por favor, llene todos los campos";
         header('Location:' . BASE_URL . 'controller/dashBoard.php');
         exit();
     }
@@ -39,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
     } else {
+        $_SESSION['tipoMensaje']="error";
         $_SESSION['mensaje'] = "Este insumo ya ha sido asignado a este producto";
         header('Location:' . BASE_URL . 'controller/dashBoard.php');
         exit();

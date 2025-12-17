@@ -30,7 +30,7 @@
                     <div class="mb-3">
                         <div class="row">
                             <div class="col-6">
-                                <button class="btn btn-primary " type="submit" onclick="return confirm('¿Seguro que quieres eliminar este producto?');">Guardar</button>
+                                <button class="btn btn-primary " type="submit">Guardar</button>
                             </div>
                             <div class="col-6">
                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>

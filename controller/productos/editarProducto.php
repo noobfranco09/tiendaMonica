@@ -8,8 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         if (
             !isset($_POST['editarIdProducto']) || !isset($_POST['editarNombreProducto'])
-            || !isset($_POST['editarDescripcionProducto']) || !isset($_POST['editarStockProducto']) ||
-            !isset($_POST['editarIdProvedor']) || !isset($_POST['editarIdTipoProducto'])
+            || !isset($_POST['editarDescripcionProducto']) ||
+            !isset($_POST['editarIdTipoProducto'])
         ) {
             $_SESSION['error'] = "Por favor, llene todos los campos";
             header('Location:' . BASE_URL . 'controller/dashBoard.php');
@@ -18,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $idProducto = $_POST['editarIdProducto'];
         $idTipoProducto = $_POST['editarIdTipoProducto'];
-        $nombre = trim($_POST['nombre'] ?? '');
-        $descripcion = trim($_POST['descripcion'] ?? '');
+        $nombre = trim($_POST['editarNombreProducto'] ?? '');
+        $descripcion = trim($_POST['editarDescripcionProducto'] ?? '');
 
         if ($nombre === '' || !preg_match('/^[\p{L}0-9\s\-_,.()]+$/u', $nombre)) {
             $_SESSION['tipoMensaje'] = 'error';
@@ -39,13 +39,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         $db = new Mysql();
-        $query = "update productos set nombre = ?,descripcion = ?,stock = ?,precio = ?,idProvedor = ?, idTipoProducto = ? where idProducto = ?";
-        $tipos = "ssidiii";
-        $datos = [$nombre, $descripcion, $stock, $precio, $idProvedor, $idTipoProducto, $idProducto];
+        $query = "update productos set nombre = ?,descripcion = ?, idTipoProducto = ? where idProducto = ?";
+        $tipos = "ssii";
+        $datos = [$nombre, $descripcion, $idTipoProducto, $idProducto];
         $resultado = $db->consultaPreparada($query, $tipos, $datos);
 
         if ($resultado) {
-
+            $_SESSION['tipoMensaje'] = "exito";
             $_SESSION['mensaje'] = "Editado con éxito";
             header('Location:' . BASE_URL . 'controller/dashBoard.php');
             exit();
