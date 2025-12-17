@@ -24,13 +24,70 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Sanitizar datos
-    $nombre = trim($_POST['nombre']);
-    $stock = intval($_POST['stock']);
-    $precio = floatval($_POST['precio']);
-    $estado = intval($_POST['estado']);
-    $talla = intval($_POST['tallas_idTalla']);
-    $color = intval($_POST['colores_idColor']);
-    $producto = intval($_POST['productos_idProducto']);
+    $nombre = trim($_POST['nombre'] ?? '');
+    $stock = intval($_POST['stock'] ?? 0);
+    $precio = floatval($_POST['precio'] ?? 0);
+    $estado = intval($_POST['estado'] ?? 0);
+    $talla = intval($_POST['tallas_idTalla'] ?? 0);
+    $color = intval($_POST['colores_idColor'] ?? 0);
+    $producto = intval($_POST['productos_idProducto'] ?? 0);
+
+    // Nombre
+    if ($nombre === '' || !preg_match('/^[\p{L}0-9\s\-\.,]+$/u', $nombre)) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'El nombre contiene caracteres no permitidos.';
+        header('Location:' . BASE_URL . 'controller\variantes\dashBoardVariantes.php');
+        exit();
+    }
+
+    // Stock
+    if ($stock < 0) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'El stock no puede ser negativo.';
+        header('Location:' . BASE_URL . 'controller\variantes\dashBoardVariantes.php');
+        exit();
+    }
+
+    // Precio
+    if ($precio <= 0) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'El precio debe ser mayor a 0.';
+        header('Location:' . BASE_URL . 'controller\variantes\dashBoardVariantes.php');
+        exit();
+    }
+
+    // Estado (ej: 1 activo / 0 inactivo)
+    if (!in_array($estado, [0, 1], true)) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'Estado inválido.';
+        header('Location:' . BASE_URL . 'controller\variantes\dashBoardVariantes.php');
+        exit();
+    }
+
+    // Talla
+    if ($talla <= 0) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'Talla inválida.';
+        header('Location:' . BASE_URL . 'controller\variantes\dashBoardVariantes.php');
+        exit();
+    }
+
+    // Color
+    if ($color <= 0) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'Color inválido.';
+        header('Location:' . BASE_URL . 'controller\variantes\dashBoardVariantes.php');
+        exit();
+    }
+
+    // Producto
+    if ($producto <= 0) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'Producto inválido.';
+        header('Location:' . BASE_URL . 'controller\variantes\dashBoardVariantes.php');
+        exit();
+    }
+
 
     // Validar y subir imagen
     $rutaDestino = BASE_PATH . 'images/uploads/variantes/';

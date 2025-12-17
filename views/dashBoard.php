@@ -83,6 +83,9 @@
         </main>
 
     </div>
+    <script>
+        window.APP_URL ="<?= BASE_URL ?>";
+    </script>
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
     <script src=" <?php echo BASE_URL . 'assets/js/dataTable/productos.js' ?>"></script>
     <script src="<?php echo BASE_URL . 'assets/js/ajaxJs/productoPorId.js' ?>"></script>

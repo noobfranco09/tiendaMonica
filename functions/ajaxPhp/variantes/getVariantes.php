@@ -3,13 +3,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
 require BASE_PATH . 'models/mySql.php';
 
 header('Content-Type: application/json');
+$data = json_decode(file_get_contents("php://input"), true);
 
-if (!isset($_GET['idProducto'])) {
+
+if (!isset($data['idProducto'])) {
     echo json_encode(["error" => "Falta idProducto"]);
     exit;
 }
 
-$idProducto = intval($_GET['idProducto']);
+$idProducto = intval($data['idProducto']);
 $db = new Mysql();
 
 $sql = "

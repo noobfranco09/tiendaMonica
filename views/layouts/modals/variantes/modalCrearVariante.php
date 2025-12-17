@@ -106,7 +106,7 @@
                                 <option value="" disabled selected>Selecciona</option>
                                 <?php foreach ($productos as $producto): ?>
                                     <option value="<?php echo $producto['idProducto']; ?>">
-                                        <?php echo htmlspecialchars($producto['nombre']); ?>
+                                        <?php echo htmlspecialchars($producto['nombre_producto']); ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>

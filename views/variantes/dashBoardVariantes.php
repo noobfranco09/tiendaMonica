@@ -76,7 +76,6 @@
                             <thead class="table-dark">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Producto</th>
                                     <th>Nombre Variante</th>
                                     <th>Talla</th>
                                     <th>Color</th>
@@ -91,19 +90,6 @@
                                 <?php foreach ($variantes as $variante): ?>
                                     <tr>
                                         <td><?php echo htmlspecialchars($variante['idVariante']); ?></td>
-
-                                        <!-- Producto -->
-                                        <td>
-                                            <?php if (!empty($variante['nombre_producto'])): ?>
-                                                <?php echo htmlspecialchars($variante['nombre_producto']); ?>
-                                            <?php else: ?>
-                                                <button class="btn btn-outline-primary btn-sm"
-                                                    data-id="<?php echo $variante['idVariante']; ?>" data-bs-toggle="modal"
-                                                    data-bs-target="#modalAsignarProducto">
-                                                    Asignar producto
-                                                </button>
-                                            <?php endif; ?>
-                                        </td>
 
                                         <!-- Nombre Variante -->
                                         <td><?php echo htmlspecialchars($variante['nombre_variante']); ?></td>
@@ -153,10 +139,10 @@
         </main>
     </div>
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
-    <?php require BASE_PATH . 'views\layouts\modals\variantes\modalCrearVariante.php' ?>
-    <?php require BASE_PATH . 'views\layouts\modals\tallas\modalCrearTalla.php' ?>
-    <?php require BASE_PATH . 'views\layouts\modals\colores\modalCrearColor.php' ?>
+    <?php require BASE_PATH . 'views/layouts/modals/variantes/modalCrearVariante.php' ?>
+    <?php require BASE_PATH . 'views/layouts/modals/tallas/modalCrearTalla.php' ?>
+    <?php require BASE_PATH . 'views/layouts/modals/colores/modalCrearColor.php' ?>
 
 
-    <script src="<?php BASE_URL . 'assets\js\dataTable\variantes.js' ?>"></script>
+    <script src="<?php BASE_URL . 'assets/js/dataTable/variantes.js' ?>"></script>
 </body>

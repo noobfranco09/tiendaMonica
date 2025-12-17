@@ -1,4 +1,5 @@
-
+<!-- estos son los datos del cliente que se piden justamente antes de  proceder con el paginatio
+con estos se crea el pedido -->
 <!-- Modal: Datos del Usuario -->
 <div class="modal fade" id="modalDatosUsuario" tabindex="-1" aria-labelledby="modalDatosUsuarioLabel"
     aria-hidden="true">
@@ -14,7 +15,7 @@
             </div>
 
             <!-- Formulario -->
-            <form id="formDatosUsuario" method="POST" action="<?php BASE_URL . 'controller\usuario\crearPedido.php' ?>">
+            <form id="formDatosUsuario" method="POST" action="<?php echo BASE_URL . 'controller\usuario\crearPedido.php' ?>">
                 <div class="modal-body px-4 py-3">
                     <!-- Nombres  -->
                     <div class="mb-3">

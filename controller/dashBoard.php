@@ -11,7 +11,8 @@ $db = new Mysql();
 $consulta = "SELECT * from productos WHERE estado = 1;
 ";
 $queryTipoproducto = "select * from tipoProducto where estado = 1";
-
+$consultaInsumos="select * from insumos where estado = 1";
+$insumos=$db->consultaPreparada($consultaInsumos);
 $resultado = $db->consultaPreparada($consulta);
 $tipoProducto = $db->consultaPreparada($queryTipoproducto);
 if (!$resultado || empty($resultado)) {

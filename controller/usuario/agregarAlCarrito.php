@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             t.nombre AS talla,
             c.nombre AS color
         FROM variantes v
-        INNER JOIN productos p ON v.productos_idProducto = p.idProducto
+        INNER JOIN productos p ON v.idProducto = p.idProducto
         INNER JOIN tallas t ON v.tallas_idTalla = t.idTalla
         INNER JOIN colores c ON v.colores_idColor = c.idColor
         WHERE v.idVariante = ? AND v.estado = 1 AND p.estado = 1

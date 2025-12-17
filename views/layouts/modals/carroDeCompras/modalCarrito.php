@@ -1,3 +1,8 @@
+<!-- esta es la modal que se usa para cuando el cliente esté seleccionando el producto -->
+<!-- se llena los select desde los archivos de js que están en assets,es importante que el producto tenga
+  variantes,de lo contrario el cliente no podrá seleccionarlo porque la petición se enviaría con datos vacíos
+  y eso no se permite. -->
+
 <div class="modal fade" id="modalCarrito" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content border-0 overflow-hidden shadow-lg">
@@ -13,7 +18,7 @@
         <!-- RIGHT -->
         <div class="col-md-8 p-4">
 
-          <form method="POST" action="<?php echo BASE_URL . 'controller/usuario/agregarAlCarrito.php'; ?>">
+          <form method="POST" action="<?php echo BASE_URL.'controller/usuario/agregarAlCarrito.php'; ?>">
 
             <input type="hidden" id="idVariante" name="idVariante">
 
@@ -36,7 +41,7 @@
             </div>
 
             <div class="d-grid gap-2">
-              <button class="btn btn-success btn-lg" type="submit">
+              <button class="btn btn-success btn-lg " type="submit">
                 <i class="fa-solid fa-cart-plus me-2"></i>Agregar al carrito
               </button>
               <button class="btn btn-outline-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>

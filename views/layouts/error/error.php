@@ -3,10 +3,9 @@ el primer parámetro y más importante es tipoMensaje, si se agrega una nueva op
 en el switch, solo se agrega otro caso, el segundo parámetro es el mensaje en sí mismo.
 Además, no olvidar de agregar el calor del ícono y del texto del header de la modal. 
 La modal borra por sí sola el mensaje de error y el tipo de mensaje -->
-<?php 
-if(session_status()===PHP_SESSION_NONE){
-    session_start();
-}
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
+require_once BASE_PATH . 'functions/helpers/session.php';
 ?>
 <?php if (isset($_SESSION['tipoMensaje']) || isset($_SESSION['mensaje'])): ?>
     <div class="modal fade" id="modalSistema" tabindex="-1" aria-labelledby="modalSistemaLabel" aria-hidden="true">

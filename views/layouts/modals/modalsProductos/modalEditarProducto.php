@@ -22,20 +22,6 @@
                             id="editarDescripcionProducto">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="editarStockProducto">Stock del producto</label>
-                        <input class="form-control" type="number" required name="editarStockProducto" id="editarStockProducto">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="editarPrecioProducto">Precio del producto</label>
-                        <input class="form-control" type="number" required name="editarPrecioProducto" id="editarPrecioProducto">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="editarIdProvedor">Provedores:</label>
-                        <select name="editarIdProvedor" id="editarIdProvedor">
-                            <option value="" disabled selected>Selecciona un provedor</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <label class="form-label" for="editarIdTipoProducto">Categoria del producto: </label>
                         <select name="editarIdTipoProducto" id="editarIdTipoProducto">
                             <option value="" disabled selected>Selecciona una categoría para el producto</option>

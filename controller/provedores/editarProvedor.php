@@ -16,8 +16,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $idProvedor = $_POST['idProvedor'];
-        $nombre = $_POST['nombre'];
-        $contacto = $_POST['contacto'];
+        $nombre = trim($_POST['nombre'] ?? '');
+        if ($nombre === '' || !preg_match('/^[\p{L}0-9\s\-_,.()]+$/u', $nombre)) {
+            $_SESSION['tipoMensaje'] = 'error';
+            $_SESSION['mensaje'] = 'El nombre contiene caracteres no permitidos.';
+            header('Location:' . BASE_URL . 'controller/provedores/dashBoardProvedores.php');
+            exit();
+        }
+        $contacto = trim($_POST['contactoProvedor'] ?? '');
+        if (!preg_match('/^\+?[0-9\s]{7,15}$/', $contacto)) {
+            $_SESSION['tipoMensaje'] = 'error';
+            $_SESSION['mensaje'] = 'El número de contacto no es válido.';
+            header('Location:' . BASE_URL . 'controller/provedores/dashBoardProvedores.php');
+            exit();
+        }
+
 
 
 

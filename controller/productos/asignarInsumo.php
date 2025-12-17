@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $resultado = $db->consultaPreparada($query, "ii", [$idInsumo, $idProducto]);
 
         if ($resultado) {
+            $_SESSION['tipoMensaje']="exito";
             $_SESSION['mensaje'] = "Agregado con éxito";
             header('Location:' . BASE_URL . 'controller/dashBoard.php');
             exit();

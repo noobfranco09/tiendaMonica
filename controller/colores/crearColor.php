@@ -21,8 +21,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Sanitizar datos
-    $nombre = trim($_POST['nombreColor']);
-    $codigo = trim($_POST['codigo']); // código HEX como #000000
+    $nombre = trim($_POST['nombreColor'] ?? '');
+    $codigo = trim($_POST['codigo'] ?? '');
+
+    // Validar nombre del color
+    if ($nombre === '' || !preg_match('/^[\p{L}\s\-]+$/u', $nombre)) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'El nombre del color contiene caracteres no permitidos.';
+        header('Location:' . BASE_URL . 'controller/variantes/dashBoardVariantes.php');
+        exit();
+    }
+
+    // Validar código HEX (#000000)
+    if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $codigo)) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'El código de color no es válido.';
+        header('Location:' . BASE_URL . 'controller/variantes/dashBoardVariantes.php');
+        exit();
+    }
 
     // Insertar en base de datos
     $query = "INSERT INTO colores (nombre, codigo, estado) VALUES (?, ?, ?)";

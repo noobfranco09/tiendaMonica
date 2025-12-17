@@ -19,14 +19,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $nombre = $_POST['nombreCategoriaProducto'];
-    $descripcion = $_POST['descripcionCategoriaProducto'];
+    $nombre = trim($_POST['nombre'] ?? '');
+    $descripcion = trim($_POST['descripcion'] ?? '');
 
+    if ($nombre === '' || !preg_match('/^[\p{L}0-9\s\-_,.()]+$/u', $nombre)) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'El nombre contiene caracteres no permitidos.';
+        header('Location:' . BASE_URL . 'controller/tipoProductos/dashBoardTipoProductos.php');
+        exit();
+    }
+
+    if ($descripcion !== '' && !preg_match('/^[\p{L}0-9\s\-_,.()]+$/u', $descripcion)) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'La descripción contiene caracteres no permitidos.';
+        header('Location:' . BASE_URL . 'controller/tipoProductos/dashBoardTipoProductos.php');
+        exit();
+    }
 
     $query = "insert into tipoProducto (nombre,descripcion,estado)
     values (?,?,?)";
     $tipos = "ssi";
-    $datos = [$nombre, $descripcion,1];
+    $datos = [$nombre, $descripcion, 1];
     $resultado = $db->consultaPreparada($query, $tipos, $datos);
 
     if ($resultado) {

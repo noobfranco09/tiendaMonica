@@ -1,31 +1,31 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
-require_once BASE_PATH . 'functions/dieAndDumb/depurar.php';
 require BASE_PATH . 'functions\helpers\session.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (empty($_POST['idProducto']) || empty($_POST['tallaProducto'])) {
+
+    if (empty($_POST['idVariante'])) {
         $_SESSION['tipoMensaje'] = "error";
-        $_SESSION['mensaje'] = "Error al intentar eliminar el producto.";
+        $_SESSION['mensaje'] = "Error al eliminar el producto.";
         header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
         exit();
     }
 
-    $idProducto = $_POST['idProducto'];
-    $tallaProducto = $_POST['tallaProducto'];
+    $idVariante = $_POST['idVariante'];
 
-    if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
+    if (!empty($_SESSION['carrito'])) {
         foreach ($_SESSION['carrito'] as $index => $item) {
-            if ($item['id'] == $idProducto && $item['talla'] == $tallaProducto) {
+            if ($item['idVariante'] == $idVariante) {
                 unset($_SESSION['carrito'][$index]);
                 break;
             }
         }
-        $_SESSION['carrito'] = array_values($_SESSION['carrito']); // Reindexar
+
+        $_SESSION['carrito'] = array_values($_SESSION['carrito']); // reindexar
     }
 
     $_SESSION['tipoMensaje'] = "exito";
-    $_SESSION['mensaje'] = "Producto eliminado del carrito correctamente.";
+    $_SESSION['mensaje'] = "Producto eliminado del carrito.";
     header('Location:' . BASE_URL . 'controller/usuario/dashBoardUsuario.php');
     exit();
 }

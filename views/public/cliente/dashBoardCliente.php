@@ -28,8 +28,12 @@
                                 <div class="col">
                                     <div class="card h-100 shadow p-3 bg-body-tertiary rounded">
 
-                                        <img src="<?php echo BASE_URL . $producto['imagen']; ?>" class="card-img-top"
-                                            alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                                        <div class="ratio ratio-4x3">
+                                            <img src="<?php echo BASE_URL . $producto['imagen']; ?>"
+                                                class="card-img-top img-fluid object-fit-cover"
+                                                alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                                        </div>
+
 
                                         <div class="card-body">
                                             <h5 class="card-title mb-2">
@@ -43,7 +47,7 @@
                                             <div class="d-grid">
                                                 <button class="btnAgregarAlCarrito btn btn-primary btn-sm"
                                                     data-bs-toggle="modal" data-bs-target="#modalCarrito"
-                                                    data-producto="<?php echo $variante['idProducto']; ?>">
+                                                    data-producto="<?php echo $producto['idProducto']; ?>">
                                                     <i class="fa-solid fa-cart-plus me-1"></i> Ver producto
                                                 </button>
                                             </div>
@@ -65,10 +69,11 @@
             </div>
         </main>
     </div>
-
+    <script>
+        window.APP_URL = <?= BASE_URL ?>
+    </script>
     <?php require BASE_PATH . 'views/layouts/footer.php' ?>
     <script src="<?php echo BASE_URL . 'assets\js\carritoDeCompras\modalAgregarProducto.js' ?>"></script>
-
     <?php require BASE_PATH . 'views\layouts\modals\carroDeCompras\modalCarrito.php' ?>
     <?php require BASE_PATH . 'views\layouts\modals\carroDeCompras\datosCliente.php' ?>
     <?php require BASE_PATH . 'views\layouts\modals\carroDeCompras\carrito.php' ?>

@@ -1,1 +1,2 @@
 require BASE_PATH . '/functions/dieAndDumb/depurar.php';//la función pa depurar dd($variables)
+<?= $pedido['total'] * 100 ?>

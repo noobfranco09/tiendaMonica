@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener("click", (e) => {
+  let tablaProductos = document.querySelector("#tablaProductos");
+  tablaProductos.addEventListener("click", (e) => {
     if (e.target.classList.contains("btnMostrarDetalle")) {
       const id = e.target.getAttribute("data-id");
       modalDetalleProducto(id);
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function modalDetalleProducto(id) {
   try {
     const response = await fetch(
-      "../../../tiendaMonica/functions/ajaxPhp/ajaxTraerInsumosProducto/traerInsumos.php",
+      `${window.APP_URL}functions/ajaxPhp/ajaxTraerInsumosProducto/traerInsumos.php`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

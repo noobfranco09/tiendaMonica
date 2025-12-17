@@ -1,18 +1,25 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const contenedorCards = document.querySelector("#contenedorCards");
 
   contenedorCards.addEventListener("click", (e) => {
     const btn = e.target.closest(".btnAgregarAlCarrito");
     if (btn) cargarModal(btn.dataset.producto);
+    // console.log(btn.dataset.producto);
+
   });
 });
 
 async function cargarModal(idProducto) {
   const response = await fetch(
-    `/tiendaMonica/controller/usuario/getVariantes.php?idProducto=${idProducto}`
+    `${window.APP_URL}functions/ajaxPhp/variantes/getVariantes.php`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ idProducto: idProducto }),
+    }
   );
 
+// console.log(await response.text());
   const data = await response.json();
 
   // --- Info producto ---
@@ -36,6 +43,7 @@ async function cargarModal(idProducto) {
   // --- Crear botones de color ---
   data.colores.forEach((color) => {
     const btn = document.createElement("button");
+    btn.type="button";
     btn.className = "btn btn-outline-primary btn-sm";
     btn.textContent = color.nombre;
     btn.dataset.colorId = color.idColor;
@@ -54,9 +62,7 @@ function seleccionarColor(idColor, data) {
   contTallas.innerHTML = "";
 
   // Filtrar por color
-  const variantesColor = data.variantes.filter(
-    (v) => v.idColor == idColor
-  );
+  const variantesColor = data.variantes.filter((v) => v.idColor == idColor);
 
   // Tallas sin repetir
   const tallasUnicas = [];
@@ -66,6 +72,7 @@ function seleccionarColor(idColor, data) {
 
   tallasUnicas.forEach((v) => {
     const btn = document.createElement("button");
+    btn.type="button";
     btn.className = "btn btn-outline-dark btn-sm";
     btn.textContent = v.talla;
 

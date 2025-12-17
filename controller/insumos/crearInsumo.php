@@ -21,9 +21,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $nombre = $_POST['nombre'];
-    $descripcion = $_POST['descripcion'] ?? "";
-    $cantidad = $_POST['cantidad'];
+    $nombre = trim($_POST['nombre'] ?? '');
+    $descripcion = trim($_POST['descripcion'] ?? '');
+    $cantidad = filter_input(INPUT_POST, 'cantidad', FILTER_VALIDATE_INT);
+
+
+    if ($nombre === '' || !preg_match('/^[\p{L}0-9\s\-_,.()]+$/u', $nombre)) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'El nombre contiene caracteres no permitidos.';
+        header('Location:' . BASE_URL . 'controller/insumos/dashBoardInsumos.php');
+        exit();
+    }
+
+    if ($descripcion !== '' && !preg_match('/^[\p{L}0-9\s\-_,.()]+$/u', $descripcion)) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'La descripción contiene caracteres no permitidos.';
+        header('Location:' . BASE_URL . 'controller/insumos/dashBoardInsumos.php');
+        exit();
+    }
+
+    if ($cantidad === false || $cantidad <= 0) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'La cantidad ingresada no es válida.';
+        header('Location:' . BASE_URL . 'controller/insumos/dashBoardInsumos.php');
+        exit();
+    }
+
+
 
 
     $query = "insert into insumos (nombre,descripcion,cantidad,estado)

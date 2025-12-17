@@ -19,7 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $nombre = trim($_POST['nombreTalla']);
+    $nombre = trim($_POST['nombre'] ?? '');
+    if ($nombre === '' || !preg_match('/^[\p{L}0-9\s\-_,.()]+$/u', $nombre)) {
+        $_SESSION['tipoMensaje'] = 'error';
+        $_SESSION['mensaje'] = 'El nombre contiene caracteres no permitidos.';
+        header('Location:' . BASE_URL . 'controller\variantes\dashBoardVariantes.php');
+        exit();
+    }
 
     /** ----------------------------------------------------------
      *  VALIDACIÓN: Verificar si la talla ya existe
