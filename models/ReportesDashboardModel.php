@@ -39,9 +39,9 @@ class ReportesDashboardModel extends Mysql
     {
         $sql = "
             SELECT p.nombre AS producto,
-                   SUM(dp.cantidad) AS cantidadVendida
-            FROM detallepedido dp
-            INNER JOIN variantes v ON dp.idVariante = v.idVariante
+                   SUM(pv.cantidad) AS cantidadVendida
+            FROM pedido_has_variantes pv
+            INNER JOIN variantes v ON pv.variantes_idVariante = v.idVariante
             INNER JOIN productos p ON v.idProducto = p.idProducto
             GROUP BY producto
             ORDER BY cantidadVendida DESC

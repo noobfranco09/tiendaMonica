@@ -1,9 +1,13 @@
 <?php
-require_once __DIR__ . "/../../models/ReportesDashboardModel.php";
+require $_SERVER['DOCUMENT_ROOT'] . '/tiendaMonica/rutas/rutaGlobal.php';
+
+require_once BASE_PATH .'models/ReportesDashboardModel.php';
 
 header("Content-Type: application/json");
+$data = json_decode(file_get_contents("php://input"), true);
 
-$tipo = $_GET["tipo"] ?? "";
+
+$tipo = $data["tipo"] ?? "";
 $model = new ReportesDashboardModel();
 
 switch ($tipo) {
