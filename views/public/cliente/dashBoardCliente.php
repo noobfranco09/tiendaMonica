@@ -7,7 +7,10 @@
 
 <body>
     <div class="layout">
-        <?php require BASE_PATH . 'views/layouts/navBarCliente.php' ?>
+        <?php if (!empty($_SESSION['usuario'])): ?>
+        <?php require BASE_PATH . 'views/layouts/navBar.php' ?>
+        <?php else: require BASE_PATH . 'views/layouts/navBarCliente.php'; ?>
+        <?php endif; ?>
         <main class="main-content">
             <?php require BASE_PATH . 'views\layouts\header.php' ?>
             <div class="content-wrapper">
